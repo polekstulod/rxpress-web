@@ -22,12 +22,36 @@
                         <div class="col-3 mb-2 mx-auto"><img class="img-fluid" src="assets/img/logo.png" alt="RxPress Logo"></div>
                         <h2 class="text-center rxpress-color fw-bold">RxPress</h2>
                         <div class="mt-5 pt-0 pe-5 pb-5 ps-5">
-                            <form>
-                                <div class="col mb-3"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="username">Username</label><input class="form-control border-form rounded-pill" type="text" id="username"></div>
-                                <div class="col mb-5"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="password">Password</label><input class="form-control border-form rounded-pill" type="password" id="password"></div>
-                                <div class="col mb-2"><a class="col-12 btn btn-color rounded-pill fs-5" href="customer-products.html" type="button">LOGIN &gt;</a></div>
-                                <div class="col text-center mb-5"><a class="text-dark text-decoration-none" href="forgot-password.html">Forgot password ?</a></div>
-                                <div class="mt-5 text-center"><a class="text-dark text-decoration-none" href="signup.html">DON'T HAVE AN ACCOUNT? SIGN UP</a></div>
+                            <form class="form" method="post" name="login">
+                                <div class="col mb-3"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="username">Username</label><input class="form-control border-form rounded-pill" type="text" id="username" name="username" required></div>
+                                <div class="col mb-5"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="password">Password</label><input class="form-control border-form rounded-pill" type="password" id="password" name="password" required></div>
+                                <div class="col mb-2"><input class="col-12 btn btn-color rounded-pill fs-5" type="submit" name="submit" value="LOGIN"></div>
+                                <div class="col text-center mb-5">
+                                    <?php
+                                    require('config.php');
+                                    session_start();
+                                    // When form submitted, check and create user session.
+                                    if (isset($_POST['username'])) {
+                                        $username = stripslashes($_REQUEST['username']);    // removes backslashes
+                                        $username = mysqli_real_escape_string($con, $username);
+                                        $password = stripslashes($_REQUEST['password']);
+                                        $password = mysqli_real_escape_string($con, $password);
+                                        // Check user is exist in the database
+                                        $query    = "SELECT * FROM `customer` WHERE Username='$username'
+                     AND User_pw='$password'";
+                                        $result = mysqli_query($con, $query) or die(mysql_error());
+                                        $rows = mysqli_num_rows($result);
+                                        if ($rows == 1) {
+                                            $_SESSION['username'] = $username;
+                                            header("Location: customer-products.php");
+                                        } else {
+                                            echo "<span class='text-danger text-decoration-none'>Incorrect Username or Password</span>";
+                                        }
+                                    } else {
+                                    }
+                                    ?>
+                                </div>
+                                <div class="mt-5 text-center"><a class="text-dark text-decoration-none" href="signup.php">DON'T HAVE AN ACCOUNT? SIGN UP</a></div>
                             </form>
                         </div>
                     </div>
