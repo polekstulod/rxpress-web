@@ -22,14 +22,14 @@
                         <form class="me-auto search-form" target="_self">
                             <div class="d-flex align-items-center search-bar border"><input class="form-control search-field" type="search" id="search-field" name="search"><label class="form-label d-flex mb-0" for="search-field"><button class="btn btn-primary" type="button"><i class="fa fa-search search-icon"></i></button></label></div>
                         </form>
-                    </div><a class="nav-link text-body font-weight-bold px-0" href="login.html"><i class="fa fa-user me-sm-1 icon-color"></i><span class="d-sm-inline d-none text-color">Login / Register</span></a><a href="cart.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bag-fill icon-color">
+                    </div><a class="nav-link text-body font-weight-bold px-0" href="logout.php"><i class="fa fa-user me-sm-1 icon-color"></i><span class="d-sm-inline d-none text-color">Logout</span></a><a href="cart.php"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bag-fill icon-color">
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"></path>
                         </svg></a>
                 </div>
             </nav>
         </div>
         <div class="bg-menu">
-            <div class="container d-flex justify-content-between mt-1 mb-1"><a class="text-white small" href="customer-products.html">ORDER MEDICINE</a><a class="text-white small" href="#">MEDICAL SUPPLIES</a><a class="text-white small" href="#">PERSONAL CARE</a><a class="text-white small" href="#">PROTECTION &amp; HYGIENE</a><a class="text-white small" href="#">MOM &amp; BABY</a><a class="text-white small" href="#">OFFERS</a><a class="text-white small" href="#">COVID ESSENTIAL</a></div>
+            <div class="container d-flex justify-content-between mt-1 mb-1"><a class="text-white small" href="customer-products.php">ORDER MEDICINE</a><a class="text-white small" href="#">MEDICAL SUPPLIES</a><a class="text-white small" href="#">PERSONAL CARE</a><a class="text-white small" href="#">PROTECTION &amp; HYGIENE</a><a class="text-white small" href="#">MOM &amp; BABY</a><a class="text-white small" href="#">OFFERS</a><a class="text-white small" href="#">COVID ESSENTIAL</a></div>
         </div>
         <div class="container">
             <ol class="breadcrumb">
@@ -107,10 +107,10 @@
                     <div class="card-group card-products">
                         <div class="card card-product rounded-3"><img class="img-fluid card-img-top w-100 d-block d-inline-block mx-auto" src="assets/img/sodium-chloride.jpg">
                             <div class="card-body">
-                                <hr><a class="card-link product-link" href="product.html">RHEA SODIUM CHLORIDE 1 G</a>
+                                <hr><a class="card-link product-link" href="product.php">RHEA SODIUM CHLORIDE 1 G</a>
                                 <p class="product-brand">Amherst Laboratories Inc.</p>
                                 <p class="sale-price">₱ 7.70</p>
-                                <div class="d-flex justify-content-between"><a class="btn btn-primary btn-buy rounded-pill" href="cart.html">BUY</a><button class="btn btn-primary btn-add rounded-pill" type="button">ADD</button></div>
+                                <div class="d-flex justify-content-between"><a class="btn btn-primary btn-buy rounded-pill" href="cart.php">BUY</a><button class="btn btn-primary btn-add rounded-pill" type="button">ADD</button></div>
                             </div>
                         </div>
                         <div class="card card-product rounded-3"><img class="img-fluid card-img-top w-100 d-block d-inline-block mx-auto card-image" src="assets/img/xtracee-plus.jpg">
