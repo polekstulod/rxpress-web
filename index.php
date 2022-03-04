@@ -75,7 +75,7 @@
             $password = mysqli_real_escape_string($con, $password);
             // Check user is exist in the database
             $query    = "SELECT * FROM `customer` WHERE Username='$username' AND User_pw='$password'";
-            $result = mysqli_query($con, $query) or die(mysql_error());
+            $result = mysqli_query($con, $query);
             $rows = mysqli_num_rows($result);
             if ($rows) {
                 $_SESSION['username'] = $username;
@@ -86,6 +86,7 @@
             }
         }
     ?>
+
 </body>
 
 </html>

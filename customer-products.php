@@ -69,7 +69,7 @@ include("session.php");
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"></path>
                         </svg>
                     </a>
-                    
+
                 </div>
             </nav>
         </div>
@@ -91,42 +91,42 @@ include("session.php");
                             <div class="range-slider"><input class="form-range" type="range" value="5" min="0" max="15" step="0.5"><input class="form-range" type="range" value="10" min="0" max="15" step="0.5"></div>
                             <h6 class="card-subtitle mt-2 sort-color">Sort by Categories</h6>
                             <div class="filter-border">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-48"><label class="form-check-label" for="formCheck-48">Allergies</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-49"><label class="form-check-label" for="formCheck-49">Cardiovascular System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-50"><label class="form-check-label" for="formCheck-50">Digestive System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-51"><label class="form-check-label" for="formCheck-51">Endocrine</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-52"><label class="form-check-label" for="formCheck-52">Eye, Ear, Nose, Throat</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-53"><label class="form-check-label" for="formCheck-53">Genito-urinary System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-54"><label class="form-check-label" for="formCheck-54">Infection &amp; Infestation</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-55"><label class="form-check-label" for="formCheck-55">Integumentary System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-56"><label class="form-check-label" for="formCheck-56">Musculoskeletal</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-57"><label class="form-check-label" for="formCheck-57">Nervous System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-58"><label class="form-check-label" for="formCheck-58">Nutrition</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-59"><label class="form-check-label" for="formCheck-59">Respiratory System</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-48">Allergies</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-49">Cardiovascular System</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-50">Digestive System</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-51">Endocrine</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-5"><label class="form-check-label" for="formCheck-52">Eye, Ear, Nose, Throat</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-6"><label class="form-check-label" for="formCheck-53">Genito-urinary System</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-7"><label class="form-check-label" for="formCheck-54">Infection &amp; Infestation</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-8"><label class="form-check-label" for="formCheck-55">Integumentary System</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-9"><label class="form-check-label" for="formCheck-56">Musculoskeletal</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-10"><label class="form-check-label" for="formCheck-57">Nervous System</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-11"><label class="form-check-label" for="formCheck-58">Nutrition</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-12"><label class="form-check-label" for="formCheck-59">Respiratory System</label></div>
                             </div>
                             <h6 class="card-subtitle mt-2 sort-color">Sort by Manufacturer</h6>
                             <div class="filter-border">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-60"><label class="form-check-label" for="formCheck-60">All Brand</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-61"><label class="form-check-label" for="formCheck-61">International Pharmaceuticals Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-62"><label class="form-check-label" for="formCheck-62">Ambica International Corp.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-63"><label class="form-check-label" for="formCheck-63">Surien Pharmaceuticals Ltd.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-64"><label class="form-check-label" for="formCheck-64">Philusa Corp</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-13"><label class="form-check-label" for="formCheck-60">All Brand</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-14"><label class="form-check-label" for="formCheck-61">International Pharmaceuticals Inc</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-15"><label class="form-check-label" for="formCheck-62">Ambica International Corp.</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-16"><label class="form-check-label" for="formCheck-63">Surien Pharmaceuticals Ltd.</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-17"><label class="form-check-label" for="formCheck-64">Philusa Corp</label></div>
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-18"><label class="form-check-label" for="formCheck-18">Pharmatechnica Laboratory Inc</label></div>
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-19"><label class="form-check-label" for="formCheck-19">Lumar Pharmaceutical Laboratory Inc</label></div>
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-20"><label class="form-check-label" for="formCheck-20">CSPC Pharmaceuticals Ltd.</label></div>
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-21"><label class="form-check-label" for="formCheck-21">Diamond Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-65"><label class="form-check-label" for="formCheck-65">New Myrex Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-66"><label class="form-check-label" for="formCheck-66">Square Pharmaceuticals Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-67"><label class="form-check-label" for="formCheck-67">Sapphire Lifesciences Pvt Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-68"><label class="form-check-label" for="formCheck-68">Azarias Pharmaceutical Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-69"><label class="form-check-label" for="formCheck-69">Zee Laboratories Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-70"><label class="form-check-label" for="formCheck-70">Pil Pharmaceuticals Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-71"><label class="form-check-label" for="formCheck-71">Lloyd Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-72"><label class="form-check-label" for="formCheck-72">Drugmaker's Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-73"><label class="form-check-label" for="formCheck-73">Helvina Pharmaceuticals Pvt Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-74"><label class="form-check-label" for="formCheck-74">JM Tolmann Laboratories, Inc.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-75"><label class="form-check-label" for="formCheck-75">Allied Pharmaceutical Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-76"><label class="form-check-label" for="formCheck-76">Aristopharma Ltd</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-22"><label class="form-check-label" for="formCheck-65">New Myrex Laboratories Inc</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-23"><label class="form-check-label" for="formCheck-66">Square Pharmaceuticals Inc</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-24"><label class="form-check-label" for="formCheck-67">Sapphire Lifesciences Pvt Ltd</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-25"><label class="form-check-label" for="formCheck-68">Azarias Pharmaceutical Laboratories Inc</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-26"><label class="form-check-label" for="formCheck-69">Zee Laboratories Ltd</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-27"><label class="form-check-label" for="formCheck-70">Pil Pharmaceuticals Ltd</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-28"><label class="form-check-label" for="formCheck-71">Lloyd Laboratories Inc</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-29"><label class="form-check-label" for="formCheck-72">Drugmaker's Laboratories Inc</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-30"><label class="form-check-label" for="formCheck-73">Helvina Pharmaceuticals Pvt Ltd</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-31"><label class="form-check-label" for="formCheck-74">JM Tolmann Laboratories, Inc.</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-32"><label class="form-check-label" for="formCheck-75">Allied Pharmaceutical Laboratories Inc</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-33"><label class="form-check-label" for="formCheck-76">Aristopharma Ltd</label></div>
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-34"><label class="form-check-label" for="formCheck-34">Prime Pharmaceuticals Pvt Ltd</label></div>
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-35"><label class="form-check-label" for="formCheck-35">BAL Pharma Ltd.</label></div>
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-36"><label class="form-check-label" for="formCheck-36">Harmann Pharmaceutical Laboratories Pvt Ltd</label></div>
@@ -155,7 +155,20 @@ include("session.php");
                                 <hr><a class="card-link product-link" href="product.php">RHEA SODIUM CHLORIDE 1 G</a>
                                 <p class="product-brand">Amherst Laboratories Inc.</p>
                                 <p class="sale-price">₱ 7.70</p>
-                                <div class="d-flex justify-content-between"><a class="btn btn-primary btn-buy rounded-pill" href="cart.php">BUY</a><button class="btn btn-primary btn-add rounded-pill" type="button">ADD</button></div>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-primary btn-buy rounded-pill">BUY</button>
+                                    <button class="btn btn-primary btn-add rounded-pill" id = "rhea" type="button" onClick="addCounter()">ADD</button>
+
+                                    <div id="counter" class="d-none align-items-center">
+                                        <a class="quantity-minus" href="#">
+                                            <span>-</span>
+                                        </a>
+                                        <input type="text" class="quantity-input" name="quantity" value="1">
+                                        <a class="quantity-plus" href="#">
+                                            <span>+</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card card-product rounded-3"><img class="img-fluid card-img-top w-100 d-block d-inline-block mx-auto card-image" src="assets/img/xtracee-plus.jpg">
@@ -283,13 +296,21 @@ include("session.php");
             </div>
         </div>
     </section>
+
     <script>
-        $(document).ready(function() {
-            $(".dropdown-toggle").dropdown();
-        });
+
+        function addCounter() {
+            document.querySelector('#rhea').style.display = "none";
+            document.querySelector('#counter').classList.remove('d-none');
+            document.querySelector('#counter').style.display = "flex";
+        }
+
+
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/counter.js"></script>
     <script src="assets/js/daterange.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
