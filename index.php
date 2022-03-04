@@ -79,6 +79,11 @@
             $rows = mysqli_num_rows($result);
             if ($rows) {
                 $_SESSION['username'] = $username;
+                $sql = "SELECT CONCAT(FirstName, ' ', LastName) as FullName FROM customer where Username = '$username'";
+                $name = mysqli_query($con, $sql) or die(mysql_error());
+                while ($row=mysqli_fetch_row($name)){
+                    $_SESSION['name'] = $row[0];
+                }
                 echo "<script>successAlert()</script>";
             } 
             else {
