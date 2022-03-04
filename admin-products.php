@@ -22,7 +22,7 @@
                         <form class="me-auto search-form" target="_self">
                             <div class="d-flex align-items-center search-bar border"><input class="form-control search-field" type="search" id="search-field" name="search"><label class="form-label d-flex mb-0" for="search-field"><button class="btn btn-primary" type="button"><i class="fa fa-search search-icon"></i></button></label></div>
                         </form>
-                    </div><a class="nav-link text-body font-weight-bold px-0" href="orders.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="me-sm-1 icon-color orders-icon">
+                    </div><a class="nav-link text-body font-weight-bold px-0" href="orders.php"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="me-sm-1 icon-color orders-icon">
                             <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg><span class="d-sm-inline d-none text-color">Orders</span></a>
                     <div class="d-flex justify-content-center"><button class="btn btn-primary rounded-pill add-product" type="button" data-bs-toggle="modal" data-bs-target="#formModal"><i class="fas fa-capsules"></i></button><div id="formModal" class="modal fade" role="dialog" tabindex="-1">
@@ -34,8 +34,8 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                      <label for="product-img" class="form-label">Product Image:</label>
-                      <input class="form-control" type="file" id="product-img">
+                        <label for="product-img" class="form-label">Product Image:</label>
+                        <input class="form-control" type="file" id="product-img">
                     </div>
                     <div class="mb-3">
                         <label for="brand-name" class="col-form-label">Brand Name:</label>
@@ -184,7 +184,7 @@
                                 <hr><a class="card-link product-link" href="edit-product.html">RHEA SODIUM CHLORIDE 1 G</a>
                                 <p class="product-brand">Amherst Laboratories Inc.</p>
                                 <p class="sale-price">₱ 7.70</p>
-                                <div class="d-flex justify-content-center"><a class="btn btn-primary btn-view rounded-pill ms-1 me-1" href="edit-product.html">VIEW</a></div>
+                                <div class="d-flex justify-content-center"><a class="btn btn-primary btn-view rounded-pill ms-1 me-1" href="edit-product.php">VIEW</a></div>
                             </div>
                         </div>
                         <div class="card card-product rounded-3"><img class="img-fluid card-img-top w-100 d-block d-inline-block mx-auto card-image" src="assets/img/xtracee-plus.jpg">
