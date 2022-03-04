@@ -11,6 +11,27 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            }
+
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            }
+
+            .dropdown:hover .dropdown-content {
+            display: block;
+            }
+    </style>
+
 </head>
 
 <body>
@@ -18,13 +39,32 @@
         <div>
             <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
                 <div class="container d-flex justify-content-between"><a class="navbar-brand" href="#"><img class="img-fluid" src="assets/img/RxPress%20Header.png" width="90" height="90"></a>
-                    <div class="col-8">
+                    <div class="col-7">
                         <form class="me-auto search-form" target="_self">
                             <div class="d-flex align-items-center search-bar border"><input class="form-control search-field" type="search" id="search-field" name="search"><label class="form-label d-flex mb-0" for="search-field"><button class="btn btn-primary" type="button"><i class="fa fa-search search-icon"></i></button></label></div>
                         </form>
-                    </div><a class="nav-link text-body font-weight-bold px-0" href="logout.php"><i class="fa fa-user me-sm-1 icon-color"></i><span class="d-sm-inline d-none text-color">Logout</span></a><a href="cart.php"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bag-fill icon-color">
+                    </div>
+
+                    <div class="dropdown">
+                        <span>
+                        <img class="img-fluid" src="assets/img/avatar.png" width="40" height="40" class="rounded-circle">
+                            <span class="d-sm-inline d-none text-color ms-1">
+                                <?php
+                                    session_start();
+                                    echo $_SESSION['username']; 
+                                ?>
+                            </span>
+                        </span>
+                        <div class="dropdown-content">
+                            <a href="logout.php">Log out</a>
+                        </div>
+                    </div>
+
+                    <a href="cart.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bag-fill icon-color">
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"></path>
-                        </svg></a>
+                        </svg>
+                    </a>
                 </div>
             </nav>
         </div>
@@ -238,11 +278,16 @@
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function() {
+            $(".dropdown-toggle").dropdown();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/daterange.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
