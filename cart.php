@@ -55,7 +55,16 @@
                                 <div class="col-md-3">
                                     <div class="mt-3 text-end">
                                         <p class="fw-bold">₱ 7.70</p>
-                                        <div class="justify-content-end quantity"><i class="fa fa-trash me-3"></i><a class="quantity-minus" href="#"><span>-</span></a><input type="text" class="quantity-input" name="quantity" value="1"><a class="quantity-plus" href="#"><span>+</span></a></div>
+                                        <div class="justify-content-end quantity">
+                                            <i class="fa fa-trash me-3"></i>
+                                            <a class="quantity-minus" href="#">
+                                                <span>-</span>
+                                            </a>
+                                            <input type="text" class="quantity-input" name="quantity" value="1">
+                                            <a class="quantity-plus" href="#">
+                                                <span>+</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

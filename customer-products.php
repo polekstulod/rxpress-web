@@ -12,30 +12,10 @@ include("session.php");
     <title>rxpress-main</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            }
-
-            .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            padding: 12px 16px;
-            z-index: 1;
-            }
-
-            .dropdown:hover .dropdown-content {
-            display: block;
-            }
-    </style>
 
 </head>
 
@@ -87,8 +67,24 @@ include("session.php");
                         <div class="card-body">
                             <h6 class="card-subtitle mt-2 sort-color">Sort by Price</h6>
                             <hr class="mt-2">
-                            <p class="card-text text-muted mb-0">₱0 - ₱148773</p>
-                            <div class="range-slider"><input class="form-range" type="range" value="5" min="0" max="15" step="0.5"><input class="form-range" type="range" value="10" min="0" max="15" step="0.5"></div>
+                            <div class="wrapper">
+                                <div class="price-input d-flex justify-content-start">
+                                    <div class="field">
+                                        <input type="number" class="input-min border-0" value="2500">
+                                    </div>
+                                    <div class="separator">-</div>
+                                    <div class="field">
+                                        <input type="number" class="input-max border-0" value="7500">
+                                    </div>
+                                </div>
+                                <div class="slider">
+                                    <div class="progress"></div>
+                                </div>
+                                <div class="range-input">
+                                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+                                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                                </div>
+                            </div>
                             <h6 class="card-subtitle mt-2 sort-color">Sort by Categories</h6>
                             <div class="filter-border">
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-48">Allergies</label></div>
