@@ -53,7 +53,7 @@
             }
         }
 
-        function alertMe() {
+        function successAlert() {
             Swal.fire({
                 title: "Registered Successfully!",
                 text: "You have successfully created an account. Go to the login page",
@@ -94,7 +94,7 @@
         $query    = "INSERT into `customer` (`CustomerID`, `Username`, `FirstName`, `LastName`, `User_pw`) VALUES ('', '$username', '$firstname', '$lastname', '$password')";
         $result   = mysqli_query($con, $query);
         if ($result) {
-            echo "<script>alertMe()</script>";
+            echo "<script>successAlert()</script>";
         }
     }
     ?>
