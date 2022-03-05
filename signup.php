@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    
+
 </head>
 
 <body>
@@ -91,7 +91,7 @@
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
 
-        $query    = "INSERT into `customer` (`CustomerID`, `Username`, `FirstName`, `LastName`, `User_pw`) VALUES ('', '$username', '$firstname', '$lastname', '$password')";
+        $query    = "INSERT into `user` (`UserID`, `Username`, `FirstName`, `LastName`, `User_pw`, `Is_admin`) VALUES ('', '$username', '$firstname', '$lastname', '$password', 0)";
         $result   = mysqli_query($con, $query);
         if ($result) {
             echo "<script>successAlert()</script>";
