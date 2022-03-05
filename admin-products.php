@@ -1,3 +1,8 @@
+<?php
+require('config.php');
+include("session.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -312,6 +317,7 @@
             </div>
         </div>
     </section>
+    <script>window.alert("<?php echo $_SESSION['username']; ?>")</script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/daterange.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.js"></script>
