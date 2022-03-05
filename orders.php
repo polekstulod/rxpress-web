@@ -1,48 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require('config.php');
+include("session.php");
+?>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>rxpress-main</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+<?php include_once "views/partials/header.php"; ?>
 
 <body>
     <section class="bg-theme">
-        <div>
-            <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
-                <div class="container d-flex justify-content-between"><a class="navbar-brand" href="#"><img class="img-fluid" src="assets/img/RxPress%20Header.png" width="90" height="90"></a>
-                    <div class="col-8">
-                        <form class="me-auto search-form" target="_self">
-                            <div class="d-flex align-items-center search-bar border"><input class="form-control search-field" type="search" id="search-field" name="search"><label class="form-label d-flex mb-0" for="search-field"><button class="btn btn-primary" type="button"><i class="fa fa-search search-icon"></i></button></label></div>
-                        </form>
-                    </div><a class="nav-link text-body font-weight-bold px-0" href="orders.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="me-sm-1 icon-color orders-icon">
-                            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg><span class="d-sm-inline d-none text-color">Orders</span></a><a href="admin-products.html"><i class="fas fa-capsules icon-color"></i></a>
-                </div>
-            </nav>
-        </div>
-        <div class="bg-menu">
-            <div class="container d-flex justify-content-between mt-1 mb-1"><a class="text-white small" href="admin-products.html">MEDICINES</a><a class="text-white small" href="#">MEDICAL SUPPLIES</a><a class="text-white small" href="#">PERSONAL CARE</a><a class="text-white small" href="#">PROTECTION &amp; HYGIENE</a><a class="text-white small" href="#">MOM &amp; BABY</a><a class="text-white small" href="#">OFFERS</a><a class="text-white small" href="#">COVID ESSENTIAL</a></div>
-        </div>
+        <?php include_once "views/partials/admin-navbar.php"; ?>
+        <?php include_once "views/partials/menu.php"; ?>
         <div class="container">
             <div class="d-flex justify-content-end align-items-baseline mt-5">
                 <p class="me-2">Order Creation Date&nbsp;</p>
                 <div class="d-inline-flex justify-content-end">
-                    <div class="input-group-prepend"><label class="form-label input-group-calendar mb-0" for="datetimerange"><i class="far fa-calendar-alt"></i></label></div>
-                </div><input type="text" id="datetimerange" class="text-start" size="25"><button class="btn btn-primary ms-2 reset-btn" type="button">Reset</button>
+                    <div class="input-group-prepend">
+                        <label class="form-label input-group-calendar mb-0" for="datetimerange">
+                            <i class="far fa-calendar-alt"></i>
+                        </label>
+                    </div>
+                </div>
+                <input type="text" id="datetimerange" class="text-start" size="25">
+                <button class="btn btn-primary ms-2 reset-btn" type="button">Reset</button>
             </div>
-            <div class="d-flex justify-content-between search-orders border mt-2 mb-5"><select class="btn-select" id="filter-orders">
-    <option value="order-id" selected>Order ID</option>
-    <option value="username">Username</option>
-    <option value="total-price">Total Price</option>
-</select><input type="search" id="search-order"><label class="form-label d-flex mb-0" for="search-product"><button class="btn btn-primary btn-search-prod rounded-pill" type="button"><i class="fa fa-search icon-color"></i></button></label></div>
+            <div class="d-flex justify-content-between search-orders border mt-2 mb-5">
+                <select class="btn-select" id="filter-orders">
+                    <option value="order-id" selected>Order ID</option>
+                    <option value="username">Username</option>
+                    <option value="total-price">Total Price</option>
+                </select>
+                <input type="search" id="search-order">
+                <label class="form-label d-flex mb-0" for="search-product">
+                    <button class="btn btn-primary btn-search-prod rounded-pill" type="button">
+                        <i class="fa fa-search icon-color"></i>
+                    </button>
+                </label>
+            </div>
             <h4>Orders</h4>
             <div class="table-responsive">
                 <table class="table orders-table">

@@ -3,211 +3,19 @@ require('config.php');
 include("session.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>rxpress-main</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+<?php include_once "views/partials/header.php"; ?>
 
 <body>
     <section class="bg-theme">
-        <div>
-            <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
-                <div class="container d-flex justify-content-between"><a class="navbar-brand" href="#"><img class="img-fluid" src="assets/img/Rxpress%20Header.png" width="90" height="90"></a>
-                <div class="dropdown">
-                        <span>
-                        <img class="img-fluid" src="assets/img/avatar.png" width="40" height="40" class="rounded-circle">
-                            <span class="d-sm-inline d-none text-color ms-1">
-                                <?php
-                                    echo $_SESSION['username']; 
-                                ?>
-                            </span>
-                        </span>
-                        <div class="dropdown-content">
-                            <a href="logout.php">Log out</a>
-                        </div>
-                    </div>
-                    <div class="col-7">
-                        <form class="me-auto search-form" target="_self">
-                            <div class="d-flex align-items-center search-bar border"><input class="form-control search-field" type="search" id="search-field" name="search"><label class="form-label d-flex mb-0" for="search-field"><button class="btn btn-primary" type="button"><i class="fa fa-search search-icon"></i></button></label></div>
-                        </form>
-                    </div><a class="nav-link text-body font-weight-bold px-0" href="orders.php"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="me-sm-1 icon-color orders-icon">
-                            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg><span class="d-sm-inline d-none text-color">Orders</span></a>
-                    <div class="d-flex justify-content-center"><button class="btn btn-primary rounded-pill add-product" type="button" data-bs-toggle="modal" data-bs-target="#formModal"><i class="fas fa-capsules"></i></button><div id="formModal" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Add Product</h4><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="product-img" class="form-label">Product Image:</label>
-                        <input class="form-control" type="file" id="product-img">
-                    </div>
-                    <div class="mb-3">
-                        <label for="brand-name" class="col-form-label">Brand Name:</label>
-                        <input type="text" class="form-control" id="brand-name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="generic-name" class="col-form-label">Generic Name:</label>
-                        <input type="text" class="form-control" id="generic-name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="dosage-strength" class="col-form-label">Dosage Strength:</label>
-                        <input type="text" class="form-control" id="dosage-strength">
-                    </div>
-                    <div class="mb-3">
-                        <label for="dosage-form" class="col-form-label">Dosage Form:</label>
-                        <input type="text" class="form-control" id="dosage-form">
-                    </div>
-                    <div class="mb-3">
-                        <label for="drug-administration" class="col-form-label">Drug Administration:</label>
-                        <input type="text" class="form-control" id="drug-administration">
-                    </div>
-                    <div class="mb-3">
-                        <label for="stock-quantity" class="col-form-label">Stock Quantity:</label>
-                        <input type="text" class="form-control" id="stock-quantity">
-                    </div>
-                    <div class="mb-3">
-                        <label for="price" class="col-form-label">Price:</label>
-                        <input type="text" class="form-control" id="price">
-                    </div>
-                    <div class="mb-3">
-                        <label for="inputGroupSelect01" class="col-form-label">Manufacturer Name:</label>
-                        <select class="form-select" id="inputGroupSelect01">
-                            <option selected></option>
-                            <option value="1">International Pharmaceuticals Inc.</option>
-                            <option value="2">Ambica International Corp.</option>
-                            <option value="3">Surien Pharmaceuticals Ltd.</option>
-                            <option value="4">Philusa Corp</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="inputGroupSelect01" class="col-form-label">Category Name:</label>
-                        <select class="form-select" id="inputGroupSelect01">
-                            <option selected></option>
-                            <option value="1">Allergies</option>
-                            <option value="2">Cardiovascular System</option>
-                            <option value="3">Digestive System</option>
-                            <option value="4">Endocrine</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="inputGroupSelect01" class="col-form-label">Condition Name:</label>
-                        <select class="form-select" id="inputGroupSelect01">
-                            <option selected></option>
-                            <option value="1">Allergic Rhinitis</option>
-                            <option value="2">Anaphylaxis</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
-        </div>
-    </div>
-</div></div>
-                </div>
-            </nav>
-        </div>
-        <div class="bg-menu">
-            <div class="container d-flex justify-content-between mt-1 mb-1"><a class="text-white small" href="admin-products.html">MEDICINES</a><a class="text-white small" href="#">MEDICAL SUPPLIES</a><a class="text-white small" href="#">PERSONAL CARE</a><a class="text-white small" href="#">PROTECTION &amp; HYGIENE</a><a class="text-white small" href="#">MOM &amp; BABY</a><a class="text-white small" href="#">OFFERS</a><a class="text-white small" href="#">COVID ESSENTIAL</a></div>
-        </div>
+        <?php include_once "views/partials/admin-navbar.php"; ?>
+        <?php include_once "views/partials/menu.php"; ?>
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><span>Home</span></a></li>
                 <li class="breadcrumb-item"><a href="#"><span>All Products</span></a></li>
             </ol>
             <div class="d-flex justify-content-between">
-                <div class="col-md-3">
-                    <div class="card me-2 rounded-3">
-                        <div class="card-body">
-                            <h6 class="card-subtitle mt-2 sort-color">Sort by Price</h6>
-                            <hr class="mt-2">
-                            <div class="wrapper">
-                                <div class="price-input">
-                                    <div class="field">
-                                        <span class="d-flex align-items-center me-5 justify-content-start">₱<input type="number" class="input-min border-0" value="2500"></span>
-                                    </div>
-                                    <div class="separator mb-2">-</div>
-                                    <div class="field">
-                                        <span class="d-flex align-items-center ms-5 justify-content-end">₱<input type="number" class="input-max border-0" value="7500"></span>
-                                    </div>
-                                </div>
-                                <div class="slider">
-                                    <div class="progress"></div>
-                                </div>
-                                <div class="range-input">
-                                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-                                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
-                                </div>
-                            </div>
-                            <h6 class="card-subtitle mt-2 sort-color">Sort by Categories</h6>
-                            <div class="filter-border">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck1">Allergies</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Cardiovascular System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Digestive System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Endocrine</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-5"><label class="form-check-label" for="formCheck-5">Eye, Ear, Nose, Throat</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-6"><label class="form-check-label" for="formCheck-6">Genito-urinary System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-7"><label class="form-check-label" for="formCheck-7">Infection &amp; Infestation</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-8"><label class="form-check-label" for="formCheck-8">Integumentary System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-9"><label class="form-check-label" for="formCheck-9">Musculoskeletal</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-10"><label class="form-check-label" for="formCheck-10">Nervous System</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-11"><label class="form-check-label" for="formCheck-11">Nutrition</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-12"><label class="form-check-label" for="formCheck-12">Respiratory System</label></div>
-                            </div>
-                            <h6 class="card-subtitle mt-2 sort-color">Sort by Manufacturer</h6>
-                            <div class="filter-border">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-13"><label class="form-check-label" for="formCheck-13">All Brand</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-14"><label class="form-check-label" for="formCheck-14">International Pharmaceuticals Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-15"><label class="form-check-label" for="formCheck-15">Ambica International Corp.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-16"><label class="form-check-label" for="formCheck-16">Surien Pharmaceuticals Ltd.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-17"><label class="form-check-label" for="formCheck-17">Philusa Corp</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-18"><label class="form-check-label" for="formCheck-18">Pharmatechnica Laboratory Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-19"><label class="form-check-label" for="formCheck-19">Lumar Pharmaceutical Laboratory Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-20"><label class="form-check-label" for="formCheck-20">CSPC Pharmaceuticals Ltd.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-21"><label class="form-check-label" for="formCheck-21">Diamond Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-22"><label class="form-check-label" for="formCheck-22">New Myrex Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-23"><label class="form-check-label" for="formCheck-23">Square Pharmaceuticals Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-24"><label class="form-check-label" for="formCheck-24">Sapphire Lifesciences Pvt Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-25"><label class="form-check-label" for="formCheck-25">Azarias Pharmaceutical Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-26"><label class="form-check-label" for="formCheck-26">Zee Laboratories Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-27"><label class="form-check-label" for="formCheck-27">Pil Pharmaceuticals Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-28"><label class="form-check-label" for="formCheck-28">Lloyd Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-29"><label class="form-check-label" for="formCheck-29">Drugmaker's Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-30"><label class="form-check-label" for="formCheck-30">Helvina Pharmaceuticals Pvt Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-31"><label class="form-check-label" for="formCheck-3`">JM Tolmann Laboratories, Inc.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-32"><label class="form-check-label" for="formCheck-32">Allied Pharmaceutical Laboratories Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-33"><label class="form-check-label" for="formCheck-33">Aristopharma Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-34"><label class="form-check-label" for="formCheck-34">Prime Pharmaceuticals Pvt Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-35"><label class="form-check-label" for="formCheck-35">BAL Pharma Ltd.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-36"><label class="form-check-label" for="formCheck-36">Harmann Pharmaceutical Laboratories Pvt Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-37"><label class="form-check-label" for="formCheck-37">Scheele Laboratories Philippines Inc</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-38"><label class="form-check-label" for="formCheck-38">Jiangxi Xierkangtai Pharmaceutical Co Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-39"><label class="form-check-label" for="formCheck-39">Alwin DMD Pharmaceuticals</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-40"><label class="form-check-label" for="formCheck-40">Cycus Pharma Private Ltd.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-41"><label class="form-check-label" for="formCheck-41">Theon Pharmaceuticals Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-42"><label class="form-check-label" for="formCheck-42">EU Medicaments</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-43"><label class="form-check-label" for="formCheck-43">San Marino Laboratories Corp</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-44"><label class="form-check-label" for="formCheck-44">Scott Edil Pharmacia Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-45"><label class="form-check-label" for="formCheck-45">Am-Europharma Corp.</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-46"><label class="form-check-label" for="formCheck-46">Brawn Laboratories Ltd</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-47"><label class="form-check-label" for="formCheck-47">Pell Tech Healthcare Pvt. Ltd.</label></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php include_once "views/partials/sort.php"; ?>
                 <div class="col-md-9">
                     <form class="d-lg-flex justify-content-lg-between search-form products-menu rounded"><span class="d-flex align-items-center fw-bold ms-3">All Products</span>
                         <div class="d-flex align-items-center search-prod-bar border col-5 rounded-pill"><input class="form-control" type="search" id="search-product"><label class="form-label d-flex mb-0" for="search-product"><button class="btn btn-primary btn-search-prod rounded-pill" type="button"><i class="fa fa-search icon-color"></i></button></label></div>
@@ -346,11 +154,12 @@ include("session.php");
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/range.js"></script>
+    <script src="assets/js/counter.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
