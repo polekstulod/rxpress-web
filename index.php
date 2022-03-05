@@ -1,3 +1,8 @@
+<?php
+         require('config.php');
+         session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +49,7 @@
                 })
         }
 
-        function successAlert() {
+        function successCustomer() {
             Swal.fire({
                 title: "Login Successful!",
                 text: "You have successfully logged in. Redirecting to the products page ",
@@ -56,6 +61,20 @@
                 }
             })
         }
+
+        function successAdmin() {
+            Swal.fire({
+                title: "Login Successful!",
+                text: "You have successfully logged in. Redirecting to the products page ",
+                confirmButtonColor: "#00A3A8",
+                icon: "success",
+            }).then((result) => {
+                if (result['isConfirmed']) {
+                    window.location.href = "/rxpress-web/admin-products.php";
+                }
+            })
+        }
+
     </script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/daterange.js"></script>
@@ -65,8 +84,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php
-        require('config.php');
-        session_start();
         // When form submitted, check and create user session.
         if (isset($_POST['username'])) {
             $username = stripslashes($_REQUEST['username']);    // removes backslashes
@@ -74,17 +91,28 @@
             $password = stripslashes($_REQUEST['password']);
             $password = mysqli_real_escape_string($con, $password);
             // Check user is exist in the database
-            $query    = "SELECT * FROM `customer` WHERE Username='$username' AND User_pw='$password'";
+            $query    = "SELECT * FROM user WHERE Username='$username' AND Password='$password'";
             $result = mysqli_query($con, $query);
             $rows = mysqli_num_rows($result);
             if ($rows) {
+                $isAdmin = mysqli_query($con, "SELECT Is_Admin FROM user WHERE Username='$username' AND Password='$password'") or die(mysql_error());
+                while ($row=mysqli_fetch_row($isAdmin)){
+                    $is_admin = $row[0];
+                }
+
                 $_SESSION['username'] = $username;
-                $sql = "SELECT CONCAT(FirstName, ' ', LastName) as FullName FROM customer where Username = '$username'";
+                $sql = "SELECT CONCAT(FirstName, ' ', LastName) as FullName FROM user where Username = '$username'";
                 $name = mysqli_query($con, $sql) or die(mysql_error());
                 while ($row=mysqli_fetch_row($name)){
                     $_SESSION['name'] = $row[0];
                 }
-                echo "<script>successAlert()</script>";
+                
+                if ($is_admin == 1) {
+                    echo "<script>successAdmin()</script>";
+                }
+                else {
+                    echo "<script>successCustomer()</script>";
+                }
             } 
             else {
                 echo "<script>errorAlert()</script>";
