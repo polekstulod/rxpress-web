@@ -68,13 +68,13 @@ include("session.php");
                             <h6 class="card-subtitle mt-2 sort-color">Sort by Price</h6>
                             <hr class="mt-2">
                             <div class="wrapper">
-                                <div class="price-input d-flex justify-content-start">
+                                <div class="price-input">
                                     <div class="field">
-                                        <input type="number" class="input-min border-0" value="2500">
+                                        <span class="d-flex align-items-center me-5 justify-content-start">₱<input type="number" class="input-min border-0" value="2500"></span>
                                     </div>
-                                    <div class="separator">-</div>
+                                    <div class="separator mb-2">-</div>
                                     <div class="field">
-                                        <input type="number" class="input-max border-0" value="7500">
+                                        <span class="d-flex align-items-center ms-5 justify-content-end">₱<input type="number" class="input-max border-0" value="7500"></span>
                                     </div>
                                 </div>
                                 <div class="slider">
@@ -306,8 +306,8 @@ include("session.php");
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/range.js"></script>
     <script src="assets/js/counter.js"></script>
-    <script src="assets/js/daterange.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 </body>
