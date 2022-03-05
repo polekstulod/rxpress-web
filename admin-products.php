@@ -22,8 +22,21 @@ include("session.php");
     <section class="bg-theme">
         <div>
             <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
-                <div class="container d-flex justify-content-between"><a class="navbar-brand" href="#"><img class="img-fluid" src="assets/img/RxPress%20Header.png" width="90" height="90"></a>
-                    <div class="col-8">
+                <div class="container d-flex justify-content-between"><a class="navbar-brand" href="#"><img class="img-fluid" src="assets/img/Rxpress%20Header.png" width="90" height="90"></a>
+                <div class="dropdown">
+                        <span>
+                        <img class="img-fluid" src="assets/img/avatar.png" width="40" height="40" class="rounded-circle">
+                            <span class="d-sm-inline d-none text-color ms-1">
+                                <?php
+                                    echo $_SESSION['username']; 
+                                ?>
+                            </span>
+                        </span>
+                        <div class="dropdown-content">
+                            <a href="logout.php">Log out</a>
+                        </div>
+                    </div>
+                    <div class="col-7">
                         <form class="me-auto search-form" target="_self">
                             <div class="d-flex align-items-center search-bar border"><input class="form-control search-field" type="search" id="search-field" name="search"><label class="form-label d-flex mb-0" for="search-field"><button class="btn btn-primary" type="button"><i class="fa fa-search search-icon"></i></button></label></div>
                         </form>
@@ -121,8 +134,24 @@ include("session.php");
                         <div class="card-body">
                             <h6 class="card-subtitle mt-2 sort-color">Sort by Price</h6>
                             <hr class="mt-2">
-                            <p class="card-text text-muted mb-0">₱0 - ₱148773</p>
-                            <div class="range-slider"><input class="form-range" type="range" value="5" min="0" max="15" step="0.5"><input class="form-range" type="range" value="10" min="0" max="15" step="0.5"></div>
+                            <div class="wrapper">
+                                <div class="price-input">
+                                    <div class="field">
+                                        <span class="d-flex align-items-center me-5 justify-content-start">₱<input type="number" class="input-min border-0" value="2500"></span>
+                                    </div>
+                                    <div class="separator mb-2">-</div>
+                                    <div class="field">
+                                        <span class="d-flex align-items-center ms-5 justify-content-end">₱<input type="number" class="input-max border-0" value="7500"></span>
+                                    </div>
+                                </div>
+                                <div class="slider">
+                                    <div class="progress"></div>
+                                </div>
+                                <div class="range-input">
+                                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+                                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                                </div>
+                            </div>
                             <h6 class="card-subtitle mt-2 sort-color">Sort by Categories</h6>
                             <div class="filter-border">
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck1">Allergies</label></div>
@@ -318,7 +347,7 @@ include("session.php");
         </div>
     </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/daterange.js"></script>
+    <script src="assets/js/range.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alumuko/vanilla-datetimerange-picker@latest/dist/vanilla-datetimerange-picker.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
