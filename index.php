@@ -1,7 +1,7 @@
 <?php
-         require('config.php');
-         session_start();
- ?>
+    require('config.php');
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,11 +91,11 @@
             $password = stripslashes($_REQUEST['password']);
             $password = mysqli_real_escape_string($con, $password);
             // Check user is exist in the database
-            $query    = "SELECT * FROM user WHERE Username='$username' AND Password='$password'";
+            $query    = "SELECT * FROM user WHERE Username='$username' AND User_pw='$password'";
             $result = mysqli_query($con, $query);
             $rows = mysqli_num_rows($result);
             if ($rows) {
-                $isAdmin = mysqli_query($con, "SELECT Is_Admin FROM user WHERE Username='$username' AND Password='$password'") or die(mysql_error());
+                $isAdmin = mysqli_query($con, "SELECT Is_admin FROM user WHERE Username='$username' AND User_pw='$password'") or die(mysql_error());
                 while ($row=mysqli_fetch_row($isAdmin)){
                     $is_admin = $row[0];
                 }
