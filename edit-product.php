@@ -44,8 +44,8 @@ include("session.php");
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                      <label for="product-img" class="form-label">Product Image:</label>
-                      <input class="form-control" type="file" id="product-img">
+                        <label for="product-img" class="form-label">Product Image:</label>
+                        <input class="form-control" type="file" id="product-img">
                     </div>
                     <div class="mb-3">
                         <label for="brand-name" class="col-form-label">Brand Name:</label>
