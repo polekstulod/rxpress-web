@@ -78,7 +78,7 @@
         $password = mysqli_real_escape_string($con, $password);
 
         $query    = "INSERT into `user` (`UserID`, `Username`, `FirstName`, `LastName`, `User_pw`, `Is_admin`) VALUES ('', '$username', '$firstname', '$lastname', '$password', 0)";
-        $result   = mysqli_query($con, $query);
+        $result   = mysqli_query($con, $query) or die(mysql_error());
         if ($result) {
             echo "<script>successAlert()</script>";
         }
