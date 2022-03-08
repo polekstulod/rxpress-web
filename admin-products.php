@@ -23,7 +23,7 @@ include("session.php");
                     <div class="card-group card-products">
                         <div class="card card-product rounded-3"><img class="img-fluid card-img-top w-100 d-block d-inline-block mx-auto" src="assets/img/sodium-chloride.jpg">
                             <div class="card-body">
-                                <hr><a class="card-link product-link" href="edit-product.html">RHEA SODIUM CHLORIDE 1 G</a>
+                                <hr><a class="card-link product-link" href="edit-product.php">RHEA SODIUM CHLORIDE 1 G</a>
                                 <p class="product-brand">Amherst Laboratories Inc.</p>
                                 <p class="sale-price">₱ 7.70</p>
                                 <div class="d-flex justify-content-center"><a class="btn btn-primary btn-view rounded-pill ms-1 me-1" href="edit-product.php">VIEW</a></div>
