@@ -35,7 +35,7 @@ include("session.php");
                             <p class="mb-2">Manufacturer :<span class="fw-bold">&nbsp;Amherst Laboratories Inc.</span></p>
                             <p class="mb-2">Category :<span class="fw-bold">&nbsp;Electrolyte Supplement</span></p>
                             <p class="mb-5">Condition :<span class="fw-bold">&nbsp;Dehydration</span></p>
-                            <div class="d-flex justify-content-center"><button class="btn btn-primary product-btn-edit rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#formModal">EDIT</button><div id="formModal" class="modal fade" role="dialog" tabindex="-1">
+                            <div class="d-flex justify-content-center"><button class="btn btn-primary product-btn-edit rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#editModal">EDIT</button><div id="editModal" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
