@@ -22,7 +22,7 @@ include("session.php");
                     </form>
 
                     <?php
-                        $sql = "SELECT * FROM product LEFT JOIN manufacturer ON product.ProductID = manufacturer.ManufacturerID;";
+                        $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID;";
                         $result = $con->query($sql) or die(mysql_error());
                 
                         while($row = $result->fetch_assoc()){
