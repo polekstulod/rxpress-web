@@ -1,7 +1,11 @@
+<?php
+require('config.php');
+?>
+
 <div>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
         <div class="container d-flex justify-content-between">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="admin-products.php">
                 <img class="img-fluid" src="assets/img/Admin%20Header.png" width="95" height="95">
             </a>
             <div class="col-7">
@@ -33,72 +37,84 @@
                                 <h4 class="modal-title">Add Product</h4><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form action="add-product.php" method="POST" enctype="multipart/form-data">
                                     <div class="mb-3">
                                         <label for="product-img" class="form-label">Product Image:</label>
-                                        <input class="form-control" type="file" id="product-img">
+                                        <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
                                     </div>
                                     <div class="mb-3">
                                         <label for="brand-name" class="col-form-label">Brand Name:</label>
-                                        <input type="text" class="form-control" id="brand-name">
+                                        <input type="text" class="form-control" id="brand-name" name="brand-name">
                                     </div>
                                     <div class="mb-3">
                                         <label for="generic-name" class="col-form-label">Generic Name:</label>
-                                        <input type="text" class="form-control" id="generic-name">
+                                        <input type="text" class="form-control" id="generic-name" name="generic-name">
                                     </div>
                                     <div class="mb-3">
                                         <label for="dosage-strength" class="col-form-label">Dosage Strength:</label>
-                                        <input type="text" class="form-control" id="dosage-strength">
+                                        <input type="text" class="form-control" id="dosage-strength" name="dosage-strength">
                                     </div>
                                     <div class="mb-3">
                                         <label for="dosage-form" class="col-form-label">Dosage Form:</label>
-                                        <input type="text" class="form-control" id="dosage-form">
+                                        <input type="text" class="form-control" id="dosage-form" name="dosage-form">
                                     </div>
                                     <div class="mb-3">
                                         <label for="drug-administration" class="col-form-label">Drug Administration:</label>
-                                        <input type="text" class="form-control" id="drug-administration">
+                                        <input type="text" class="form-control" id="drug-administration" name="drug-administration">
                                     </div>
                                     <div class="mb-3">
                                         <label for="stock-quantity" class="col-form-label">Stock Quantity:</label>
-                                        <input type="text" class="form-control" id="stock-quantity">
+                                        <input type="number" class="form-control" id="stock-quantity" name="stock-quantity">
                                     </div>
                                     <div class="mb-3">
                                         <label for="price" class="col-form-label">Price:</label>
-                                        <input type="text" class="form-control" id="price">
+                                        <input type="number" class="form-control" id="price" name="price">
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputGroupSelect01" class="col-form-label">Manufacturer Name:</label>
-                                        <select class="form-select" id="inputGroupSelect01">
+                                        <select class="form-select" id="inputGroupSelect01" name="manufacturer">
                                             <option selected></option>
-                                            <option value="1">International Pharmaceuticals Inc.</option>
-                                            <option value="2">Ambica International Corp.</option>
-                                            <option value="3">Surien Pharmaceuticals Ltd.</option>
-                                            <option value="4">Philusa Corp</option>
+                                            <?php
+                                            $sql = "SELECT * FROM manufacturer;";
+                                            $result = $con->query($sql) or die(mysql_error());
+                                            
+                                            while($row = $result->fetch_assoc()) {?>
+                                                <option value="<?php echo $row['ManufacturerID'] ?>"><?php echo $row['ManufacturerName'] ?></option>
+                                            <?php }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputGroupSelect01" class="col-form-label">Category Name:</label>
-                                        <select class="form-select" id="inputGroupSelect01">
+                                        <select class="form-select" id="inputGroupSelect01" name="category">
                                             <option selected></option>
-                                            <option value="1">Allergies</option>
-                                            <option value="2">Cardiovascular System</option>
-                                            <option value="3">Digestive System</option>
-                                            <option value="4">Endocrine</option>
+                                            <?php
+                                            $sql = "SELECT * FROM category;";
+                                            $result = $con->query($sql) or die(mysql_error());
+                                            
+                                            while($row = $result->fetch_assoc()) {?>
+                                                <option value="<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?></option>
+                                            <?php }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputGroupSelect01" class="col-form-label">Condition Name:</label>
-                                        <select class="form-select" id="inputGroupSelect01">
+                                        <select class="form-select" id="inputGroupSelect01" name="condition">
                                             <option selected></option>
-                                            <option value="1">Allergic Rhinitis</option>
-                                            <option value="2">Anaphylaxis</option>
+                                            <?php
+                                            $sql = "SELECT * FROM cond;";
+                                            $result = $con->query($sql) or die(mysql_error());
+                                            
+                                            while($row = $result->fetch_assoc()) {?>
+                                                <option value="<?php echo $row['ConditionID'] ?>"><?php echo $row['ConditionName'] ?></option>
+                                            <?php }
+                                            ?>
                                         </select>
                                     </div>
+                                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-primary" name="submit" type="submit">Save</button>
                                 </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
-                                <button class="btn btn-primary" type="button">Save</button>
                             </div>
                         </div>
                     </div>
