@@ -26,95 +26,110 @@ require('config.php');
                 </svg>
                 <span class="d-sm-inline d-none text-color">Orders</span></a>
             <div class="d-flex justify-content-center">
-                <button class="btn btn-primary rounded-pill add-product" type="button" data-bs-toggle="modal" data-bs-target="#formModal">
+                <button class="btn btn-primary rounded-pill add-product" type="button" data-bs-toggle="modal" data-bs-target="#addProductModal">
                     <i class="fas fa-capsules"></i>
                 </button>
+                <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="AddProduct" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content bg-modal">
+                            <div class="row p-5">
+                                <div class="col-md mb-md-0 mb-5">
+                                    <div class="modal-body p-0">
+                                        <div class="d-flex align-items-center mb-4">
+                                            <h3 class="me-3">Add Product</h3>
+                                            <img class="img-fluid" src="assets/img/add-product.png" width="55" height="55" class="rounded-circle">
+                                        </div>
+                                        <form action="add-product.php" class="add-product-form" method="POST" enctype="multipart/form-data">
+                                            <div class="form-group custom-file-button">
+                                                <label for="productImage" class="label-modal">Product Image</label>
+                                                <input type="file" class="form-control modal-form" name="productImage" id="productImage">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="brandName" class="label-modal">Brand Name</label>
+                                                <input type="text" class="form-control modal-form" name="brandName" id="brandName" placeholder="Pearly-C">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="genericName" class="label-modal">Generic Name</label>
+                                                <input type="text" class="form-control modal-form" name="genericName" id="genericName" placeholder="Ascorbic Acid + Zinc">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dosageStrength" class="label-modal">Dosage Strength</label>
+                                                <input type="text" class="form-control modal-form" name="dosageStrength" id="dosageStrength" placeholder="500 MG / 10 MG">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dosageForm" class="label-modal">Dosage Form</label>
+                                                <input type="text" class="form-control modal-form" name="dosageForm" id="dosageForm" placeholder="Capsule">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="drugAdministration" class="label-modal">Drug Administration</label>
+                                                <input type="text" class="form-control modal-form" name="drugAdministration" id="drugAdministration" placeholder="Oral route">
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="modal-body p-0" style="margin-top: 5rem;">
+                                        <div class="form-group">
+                                            <label for="stockQuantity" class="label-modal">Stock Quantity</label>
+                                            <input type="number" class="form-control modal-form" name="stockQuantity" id="stockQuantity" placeholder="60">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="price" class="label-modal">Price</label>
+                                            <input type="number" class="form-control modal-form" name="price" id="price" placeholder="6.88">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="manufacturerName" class="label-modal">Manufacturer Name</label>
+                                            <select class="form-select modal-form" name="manufacturerName" id="manufacturerName" placeholder="Jiangxi Xierkangtai Pharmaceutical Co Ltd">
+                                                <option value="" disabled selected></option>
+                                                <?php
+                                                $sql = "SELECT * FROM manufacturer;";
+                                                $result = $con->query($sql) or die(mysql_error());
 
-                <div id="formModal" class="modal fade" role="dialog" tabindex="-1">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Add Product</h4><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="add-product.php" method="POST" enctype="multipart/form-data">
-                                    <div class="mb-3">
-                                        <label for="product-img" class="form-label">Product Image:</label>
-                                        <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
+                                                while ($row = $result->fetch_assoc()) { ?>
+                                                    <option value="<?php echo $row['ManufacturerID'] ?>"><?php echo $row['ManufacturerName'] ?></option>
+                                                <?php }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="category" class="label-modal">Category Name</label>
+                                            <select class="form-select modal-form" name="category" id="category">
+                                                <option value="" disabled selected></option>
+                                                <option selected></option>
+                                                <?php
+                                                $sql = "SELECT * FROM category;";
+                                                $result = $con->query($sql) or die(mysql_error());
+
+                                                while ($row = $result->fetch_assoc()) { ?>
+                                                    <option value="<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?></option>
+                                                <?php }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="condition" class="label-modal">Condition Name</label>
+                                            <select class="form-select modal-form" name="condition" id="condition">
+                                                <option value="" disabled selected></option>
+                                                <?php
+                                                $sql = "SELECT * FROM cond;";
+                                                $result = $con->query($sql) or die(mysql_error());
+
+                                                while ($row = $result->fetch_assoc()) { ?>
+                                                    <option value="<?php echo $row['ConditionID'] ?>"><?php echo $row['ConditionName'] ?></option>
+                                                <?php }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="d-flex justify-content-end" style="margin-top: 6rem;">
+                                            <div class="form-group me-3">
+                                                <button type="button" class="form-control btn btn-cancel rounded submit px-3" data-bs-dismiss="modal">Cancel</button>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" name="submit" class="form-control btn btn-save rounded px-3">Save</button>
+                                            </div>
+                                        </div>
+                                        </form>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="brand-name" class="col-form-label">Brand Name:</label>
-                                        <input type="text" class="form-control" id="brand-name" name="brand-name">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="generic-name" class="col-form-label">Generic Name:</label>
-                                        <input type="text" class="form-control" id="generic-name" name="generic-name">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="dosage-strength" class="col-form-label">Dosage Strength:</label>
-                                        <input type="text" class="form-control" id="dosage-strength" name="dosage-strength">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="dosage-form" class="col-form-label">Dosage Form:</label>
-                                        <input type="text" class="form-control" id="dosage-form" name="dosage-form">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="drug-administration" class="col-form-label">Drug Administration:</label>
-                                        <input type="text" class="form-control" id="drug-administration" name="drug-administration">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="stock-quantity" class="col-form-label">Stock Quantity:</label>
-                                        <input type="number" class="form-control" id="stock-quantity" name="stock-quantity">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="price" class="col-form-label">Price:</label>
-                                        <input type="number" class="form-control" id="price" name="price">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="inputGroupSelect01" class="col-form-label">Manufacturer Name:</label>
-                                        <select class="form-select" id="inputGroupSelect01" name="manufacturer">
-                                            <option selected></option>
-                                            <?php
-                                            $sql = "SELECT * FROM manufacturer;";
-                                            $result = $con->query($sql) or die(mysql_error());
-                                            
-                                            while($row = $result->fetch_assoc()) {?>
-                                                <option value="<?php echo $row['ManufacturerID'] ?>"><?php echo $row['ManufacturerName'] ?></option>
-                                            <?php }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="inputGroupSelect01" class="col-form-label">Category Name:</label>
-                                        <select class="form-select" id="inputGroupSelect01" name="category">
-                                            <option selected></option>
-                                            <?php
-                                            $sql = "SELECT * FROM category;";
-                                            $result = $con->query($sql) or die(mysql_error());
-                                            
-                                            while($row = $result->fetch_assoc()) {?>
-                                                <option value="<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?></option>
-                                            <?php }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="inputGroupSelect01" class="col-form-label">Condition Name:</label>
-                                        <select class="form-select" id="inputGroupSelect01" name="condition">
-                                            <option selected></option>
-                                            <?php
-                                            $sql = "SELECT * FROM cond;";
-                                            $result = $con->query($sql) or die(mysql_error());
-                                            
-                                            while($row = $result->fetch_assoc()) {?>
-                                                <option value="<?php echo $row['ConditionID'] ?>"><?php echo $row['ConditionName'] ?></option>
-                                            <?php }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
-                                <button class="btn btn-primary" name="submit" type="submit">Save</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

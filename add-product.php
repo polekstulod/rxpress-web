@@ -2,13 +2,13 @@
 require('config.php');
 
     $target_dir = "assets/img/product-img/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $target_file = $target_dir . basename($_FILES["productImage"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
-      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+      $check = getimagesize($_FILES["productImage"]["tmp_name"]);
       if($check !== false) {
         $uploadOk = 1;
       } else {
@@ -16,14 +16,14 @@ require('config.php');
         $uploadOk = 0;
       }
 
-      $brandName = $_REQUEST['brand-name'];
-      $genericName = $_REQUEST['generic-name'];
-      $dosageStrength = $_REQUEST['dosage-strength'];
-      $dosageForm = $_REQUEST['dosage-form'];
-      $drugAdministration = $_REQUEST['drug-administration'];
-      $stockQuantity = $_REQUEST['stock-quantity'];
+      $brandName = $_REQUEST['brandName'];
+      $genericName = $_REQUEST['genericName'];
+      $dosageStrength = $_REQUEST['dosageStrength'];
+      $dosageForm = $_REQUEST['dosageForm'];
+      $drugAdministration = $_REQUEST['drugAdministration'];
+      $stockQuantity = $_REQUEST['stockQuantity'];
       $price = $_REQUEST['price'];
-      $manufacturer = $_REQUEST['manufacturer'];
+      $manufacturer = $_REQUEST['manufacturerName'];
       $category = $_REQUEST['category'];
       $condition = $_REQUEST['condition'];
 
@@ -38,7 +38,6 @@ require('config.php');
       echo '<script>alert("Sorry, file already exists.")</script>';
       $uploadOk = 0;
     }
-     
     
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -53,8 +52,8 @@ require('config.php');
 
     // if everything is ok, try to upload file
     } else {
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-      echo '<script>alert("Success")</script>';
+      if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
+        echo '<script>alert("Success")</script>';
         header("Location: admin-products.php");
       } else {
       echo '<script>alert("Sorry, there was an error uploading your file.")</script>';
