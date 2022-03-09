@@ -20,7 +20,8 @@ include("session.php");
             </ol>
             <div class="d-flex justify-content-between mt-3">
             <?php
-                $sql = "SELECT * FROM product WHERE ProductID = 27;";
+                $productID = $_GET['title'];
+                $sql = "SELECT * FROM product WHERE ProductID = $productID;";
                 $result = $con->query($sql) or die(mysql_error());
 
                 while($row = $result->fetch_assoc()) { ?>
