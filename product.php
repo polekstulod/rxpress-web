@@ -35,11 +35,11 @@ include("session.php");
                             <h5 class="text-muted mb-4 prod-availability">Availability :&nbsp;
                                 <span class="text-color fs-5 fw-bold">&nbsp;
                                     <?php
-                                     if($row['in_stock'] == 1){
-                                         echo "In Stock";
-                                     }else{
-                                         echo "Out of Stock";
-                                     }
+                                        if($row['in_stock'] == 1){
+                                            echo "In Stock";
+                                        }else{
+                                            echo "Out of Stock";
+                                        }
                                     ?>
                                     </span>
                             </h5>
