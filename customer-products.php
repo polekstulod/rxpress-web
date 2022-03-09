@@ -24,7 +24,7 @@ include("functions.php");
 
                     <?php
                         listProducts($con);
-                     ?>
+                    ?>
                 </div>
             </div>
         </div>
