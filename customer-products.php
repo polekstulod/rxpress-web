@@ -30,13 +30,4 @@ include("functions.php");
         </div>
     </section>
 
-    <script>
-
-        function addCounter() {
-            document.querySelector('#rhea').style.display = "none";
-            document.querySelector('#counter').classList.remove('d-none');
-            document.querySelector('#counter').style.display = "flex";
-        }
-    </script>
-
 <?php include_once "views/partials/footer.php"; ?>
