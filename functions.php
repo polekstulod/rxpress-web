@@ -24,7 +24,7 @@ function listProducts($con)
                                                                     } else {
                                                                         $url = 'product.php';
                                                                     }
-                                                                    echo $url.'?title='. $row['ProductID'];
+                                                                    echo $url . '?title=' . $row['ProductID'];
                                                                     ?>"><?php echo $row['BrandName'] . ' ' . $row['DosageStrength'] ?></a>
                         <p class="product-brand"><?php echo $row['ManufacturerName'] ?></p>
                         <p class="sale-price">₱ <?php echo $row['Price'] ?></p>
@@ -34,14 +34,14 @@ function listProducts($con)
                             </div>
                         <?php } else { ?>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-buy rounded-pill">BUY</button>
-                                <button class="btn btn-primary btn-add rounded-pill" id="rhea" type="button" onClick="addCounter()">ADD</button>
+                                <button class="btn btn-primary btn-buy rounded-pill" onclick="buyProduct(<?php echo $row['ProductID'] ?>, <?php echo $row['Price'] ?>)">BUY</button>
+                                <button class="btn btn-primary btn-add rounded-pill" id="addcounter" type="button" onClick="addCounter(<?php echo $row['ProductID'] ?>)">ADD</button>
 
                                 <div id="counter" class="d-none align-items-center">
                                     <a class="quantity-minus" href="#">
                                         <span>-</span>
                                     </a>
-                                    <input type="text" class="quantity-input" name="quantity" value="1">
+                                    <input type="number" class="quantity-input" name="quantity" value="1">
                                     <a class="quantity-plus" href="#">
                                         <span>+</span>
                                     </a>
@@ -59,9 +59,47 @@ function listProducts($con)
 
     ?>
     <script>
-        function addCounter() {
-            document.querySelector('#rhea').style.display = "none";
-            document.querySelector('#counter').classList.remove('d-none');
-            document.querySelector('#counter').style.display = "flex";
+        function addCounter(productID) {
+            const prodID = productID - 1;
+
+            const addcounter = document.querySelectorAll('#addcounter');
+            const counter = document.querySelectorAll('#counter');
+            const minus = document.querySelectorAll('.quantity-minus');
+            const plus = document.querySelectorAll('.quantity-plus');
+            const input = document.querySelectorAll('.quantity-input');
+
+
+            minus[prodID].addEventListener('click', (e) => {
+                e.preventDefault();
+                var value = input[prodID].value;
+                if (value > 1) {
+                    value--;
+                }
+                input[prodID].value = value;
+            });
+
+            plus[prodID].addEventListener('click', (e) => {
+                e.preventDefault();
+                var value = input[prodID].value;
+                value++;
+                input[prodID].value = value;
+            });
+            addcounter[prodID].style.display = "none";
+            counter[prodID].classList.remove('d-none');
+            counter[prodID].style.display = "flex";
+
+        }
+
+        function buyProduct(prodID, prodPrice) {
+            let quantityAll = document.querySelectorAll('.quantity-input');
+            let quantity = quantityAll[prodID - 1].value;
+            let productID = prodID;
+            let price = prodPrice;
+            let total = price * quantity;
+
+            <?php
+                require('config.php');
+                
+            ?>
         }
     </script>
