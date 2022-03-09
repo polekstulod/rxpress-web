@@ -8,7 +8,7 @@ include("session.php");
 <body>
     <?php
     $userID = $_GET['user_id'];
-    
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $productID = $_POST['product_id'];
         $price = $_POST['price'];
@@ -33,6 +33,7 @@ include("session.php");
             </ol>
             <div class="d-flex justify-content-between">
                 <div class="col-md-8">
+                    <form action="checkout-order.php" class="checkout-order-form" method="POST">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <h4 class="fw-bold mt-2 mb-0">MY CART</h4>
@@ -51,6 +52,7 @@ include("session.php");
                                 while ($row2 = $result2->fetch_assoc()) {
                                 ?>
                                     <div class="d-flex justify-content-between">
+                                        <input type="hidden" name="cartID" value=<?php echo $cartID?>>
                                         <?php
                                         $productID = $row2['CartProductID'];
                                         $sql3 = "SELECT * FROM product WHERE ProductID = $productID;";
@@ -62,8 +64,11 @@ include("session.php");
                                             </div>
                                             <div class="col-md-7">
                                                 <div class="mt-3">
-                                                    <p class="mb-0 fw-bold medicine-name"><?php echo $row3['BrandName'] . ' ' . $row3['DosageStrength'] ?></p>
-                                                    <p class="mb-0 medicine-form">Medicine Form :&nbsp;<span class="fw-bold"><?php echo $row3['DosageForm']; ?></span></p>
+                                                    <p class="mb-0 fw-bold medicine-name"><?php echo $row3['BrandName'] . ' ' . $row3['DosageStrength'] ?>
+                                                    </p>
+                                                    <p class="mb-0 medicine-form">Medicine Form :&nbsp;
+                                                        <span class="fw-bold"><?php echo $row3['DosageForm']; ?></span>
+                                                    </p>
                                                     <p class="availability">
                                                         <?php
                                                         if ($row3['in_stock'] == 1) {
@@ -93,10 +98,10 @@ include("session.php");
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php
-                                }
-                                    ?>
                                     </div>
+                                <?php
+                                }
+                                ?>
                             </li>
                     </ul>
                 </div>
@@ -117,14 +122,17 @@ include("session.php");
                         </li>
                     </ul>
                 <?php
-                    }
+                }
                 ?>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-12"><a class="d-flex justify-content-center btn checkout-btn mt-4 ms-5" href="#" type="submit">Continue Checkout</a></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <button class="d-flex justify-content-center btn checkout-btn mt-4 ms-5" href="checkout-order.php" type="submit" name="checkout">Continue Checkout</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
+            </form>
             </div>
         </div>
     </section>
