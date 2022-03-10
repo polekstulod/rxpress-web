@@ -1,12 +1,24 @@
 <?php
-
+$globalProdID = 0;
+$globalCatID = 0;
 function productInfo($con){ ?>
     <?php
                 $productID = $_GET['title'];
-                $sql = "SELECT * FROM product WHERE ProductID = $productID;";
+                $sql = "SELECT p.ProductID, p.CategoryID, p.BrandName, p.StockQuantity, p.Price, p.in_stock, p.DosageStrength, p.GenericName, p.DosageForm, p.DrugAdministration, m.ManufacturerName, cg.CategoryName, cond.ConditionName 
+                FROM `product` p
+                INNER JOIN `manufacturer` m
+                    ON p.ManufacturerID = m.ManufacturerID
+                INNER JOIN `category` cg
+                    ON p.CategoryID = cg.CategoryID
+                INNER JOIN `cond`cond
+                    ON cg.CategoryID = cond.CategoryID
+                WHERE p.ProductID = $productID
+                GROUP BY p.ProductID";
                 $result = $con->query($sql) or die(mysql_error());
 
-                while($row = $result->fetch_assoc()) { ?>
+                while($row = $result->fetch_assoc()) {
+                    $globalProdID = $row['ProductID'];
+                    $globalCatID = $row['CategoryID']; ?>
                     <div class="col-md-6">
                     <div class="d-flex justify-content-center bg-white shadow p-3 mb-5 bg-body rounded"><img class="img-fluid product-img" src="assets/img/product-img/<?php echo $row['ProductID']; ?>.jpeg"></div>
                 </div>
@@ -18,7 +30,7 @@ function productInfo($con){ ?>
                             <h5 class="text-muted mb-4 prod-availability">Availability :&nbsp;
                                 <span class="text-color fs-5 fw-bold">&nbsp;
                                     <?php
-                                        if($row['in_stock'] == 1){
+                                        if($row['StockQuantity'] > 0){
                                             echo "In Stock";
                                         }else{
                                             echo "Out of Stock";
@@ -40,13 +52,13 @@ function productInfo($con){ ?>
                                 <span class="fw-bold">&nbsp;<?php echo $row['DrugAdministration']?></span>
                             </p>
                             <p class="mb-2">Manufacturer :
-                                <span class="fw-bold">&nbsp;<?php echo $row['ManufacturerID']?></span>
+                                <span class="fw-bold">&nbsp;<?php echo $row['ManufacturerName']?></span>
                             </p>
                             <p class="mb-2">Category :
-                                <span class="fw-bold">&nbsp;<?php echo $row['CategoryID']?></span>
+                                <span class="fw-bold">&nbsp;<?php echo $row['CategoryName']?></span>
                             </p>
                             <p class="mb-5">Condition :
-                                <span class="fw-bold">&nbsp;Dehydration</span>
+                                <span class="fw-bold">&nbsp;<?php echo $row['ConditionName']?></span>
                             </p>
                             <?php
                                 if($_SESSION['username'] == 'admin') { ?>
@@ -69,23 +81,23 @@ function productInfo($con){ ?>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="brandName" class="label-modal">Brand Name</label>
-                                                                <input type="text" class="form-control modal-form" name="brandName" id="brandName" placeholder="Pearly-C">
+                                                                <input type="text" class="form-control modal-form" name="brandName" id="brandName" value="<?php echo $row['BrandName']?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="genericName" class="label-modal">Generic Name</label>
-                                                                <input type="text" class="form-control modal-form" name="genericName" id="genericName" placeholder="Ascorbic Acid + Zinc">
+                                                                <input type="text" class="form-control modal-form" name="genericName" id="genericName" value="<?php echo $row['GenericName']?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="dosageStrength" class="label-modal">Dosage Strength</label>
-                                                                <input type="text" class="form-control modal-form" name="dosageStrength" id="dosageStrength" placeholder="500 MG / 10 MG">
+                                                                <input type="text" class="form-control modal-form" name="dosageStrength" id="dosageStrength" value="<?php echo $row['DosageStrength']?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="dosageForm" class="label-modal">Dosage Form</label>
-                                                                <input type="text" class="form-control modal-form" name="dosageForm" id="dosageForm" placeholder="Capsule">
+                                                                <input type="text" class="form-control modal-form" name="dosageForm" id="dosageForm" value="<?php echo $row['DosageForm']?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="drugAdministration" class="label-modal">Drug Administration</label>
-                                                                <input type="text" class="form-control modal-form" name="drugAdministration" id="drugAdministration" placeholder="Oral route">
+                                                                <input type="text" class="form-control modal-form" name="drugAdministration" id="drugAdministration" value="<?php echo $row['DrugAdministration']?>">
                                                             </div>
                                                     </div>
                                                 </div>
@@ -93,22 +105,22 @@ function productInfo($con){ ?>
                                                     <div class="modal-body p-0" style="margin-top: 5rem;">
                                                         <div class="form-group">
                                                             <label for="stockQuantity" class="label-modal">Stock Quantity</label>
-                                                            <input type="number" class="form-control modal-form" name="stockQuantity" id="stockQuantity" placeholder="60">
+                                                            <input type="number" class="form-control modal-form" name="stockQuantity" id="stockQuantity" value="<?php echo $row['StockQuantity'] ?>">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="price" class="label-modal">Price</label>
-                                                            <input type="number" class="form-control modal-form" name="price" id="price" placeholder="6.88">
+                                                            <input type="number" class="form-control modal-form" name="price" id="price" value="<?php echo $row['Price']?>">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="manufacturerName" class="label-modal">Manufacturer Name</label>
-                                                            <select class="form-select modal-form" name="manufacturerName" id="manufacturerName" placeholder="Jiangxi Xierkangtai Pharmaceutical Co Ltd">
+                                                            <select class="form-select modal-form" name="manufacturerName" id="manufacturerName" value="Jiangxi Xierkangtai Pharmaceutical Co Ltd">
                                                                 <option value="" disabled selected></option>
                                                                 <?php
                                                                 $sql = "SELECT * FROM manufacturer;";
                                                                 $result = $con->query($sql) or die(mysql_error());
 
                                                                 while ($row = $result->fetch_assoc()) { ?>
-                                                                    <option value="<?php echo $row['ManufacturerID'] ?>"><?php echo $row['ManufacturerName'] ?></option>
+                                                                    <option <?php if($globalProdID == $row['ManufacturerID']) echo 'selected'?> value="<?php echo $row['ManufacturerID'] ?>"><?php echo $row['ManufacturerName'] ?></option>
                                                                 <?php }
                                                                 ?>
                                                             </select>
@@ -123,7 +135,7 @@ function productInfo($con){ ?>
                                                                 $result = $con->query($sql) or die(mysql_error());
 
                                                                 while ($row = $result->fetch_assoc()) { ?>
-                                                                    <option value="<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?></option>
+                                                                    <option <?php if($globalProdID == $row['CategoryID']) echo 'selected'?> value="<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?></option>
                                                                 <?php }
                                                                 ?>
                                                             </select>
@@ -137,7 +149,7 @@ function productInfo($con){ ?>
                                                                 $result = $con->query($sql) or die(mysql_error());
 
                                                                 while ($row = $result->fetch_assoc()) { ?>
-                                                                    <option value="<?php echo $row['ConditionID'] ?>"><?php echo $row['ConditionName'] ?></option>
+                                                                    <option <?php if($globalCatID == $row['CategoryID']) echo 'selected'?> value="<?php echo $row['ConditionID'] ?>"><?php echo $row['ConditionName'] ?></option>
                                                                 <?php }
                                                                 ?>
                                                             </select>
