@@ -68,7 +68,7 @@ include("session.php");
                                     <td class="text-center"><?php echo $row['OrderID']?></td>
                                     <td class="text-center"><?php echo $row['OrderDate']?></td>
                                     <td class="text-center"><?php echo $row['Username']?></td>
-                                    <td class="text-end"><?php echo $row['Subtotal']?></td>
+                                    <td class="text-end"><?php echo $row['Total']?></td>
                                 </tr>
 
                         <?php  } while ($row = $orders->fetch_assoc());
