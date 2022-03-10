@@ -9,7 +9,17 @@ function listProducts($con)
         $user_ID = $row[0];
     }
 
-    $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID;";
+    $search = $_GET['search-product'] ?? '';
+
+    if ($search) {
+        $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID
+        WHERE product.BrandName LIKE '%$search%' || product.Price LIKE '%$search%' || product.DosageStrength LIKE '%$search%'  
+        || manufacturer.ManufacturerName LIKE '%$search%'";
+    }
+    else {
+        $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID;";;
+    }
+
     $result = $con->query($sql) or die(mysql_error());
 
     while ($row = $result->fetch_assoc()) {

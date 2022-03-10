@@ -25,7 +25,6 @@ include("session.php");
             </div>
             <?php 
                 $search = $_GET['search-order'] ?? '';
-                print_r($_GET);
 
                 if ($search) {
                     $sql = "SELECT * FROM orderdetails WHERE OrderID LIKE '%$search%' || OrderDate LIKE '%$search%' || Username LIKE '%$search%' || Total LIKE '%$search%'" ;
