@@ -6,14 +6,15 @@ function productInfo($con){ ?>
                 $productID = $_GET['title'];
                 $sql = "SELECT p.ProductID, p.CategoryID, p.BrandName, p.StockQuantity, p.Price, p.in_stock, p.DosageStrength, p.GenericName, p.DosageForm, p.DrugAdministration, m.ManufacturerName, cg.CategoryName, cond.ConditionName 
                 FROM `product` p
-                INNER JOIN `manufacturer` m
+                LEFT OUTER JOIN `manufacturer` m
                     ON p.ManufacturerID = m.ManufacturerID
-                INNER JOIN `category` cg
+                LEFT OUTER JOIN `category` cg
                     ON p.CategoryID = cg.CategoryID
-                INNER JOIN `cond`cond
+                LEFT OUTER JOIN `cond`cond
                     ON cg.CategoryID = cond.CategoryID
                 WHERE p.ProductID = $productID
                 GROUP BY p.ProductID";
+                
                 $result = $con->query($sql) or die(mysql_error());
 
                 while($row = $result->fetch_assoc()) {
