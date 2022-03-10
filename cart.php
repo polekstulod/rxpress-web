@@ -125,10 +125,8 @@ include("session.php");
                 }
                 ?>
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-12">
-                                <button class="d-flex justify-content-center btn checkout-btn mt-4 ms-5" href="checkout-order.php" type="submit" name="checkout">Continue Checkout</button>
-                            </div>
+                        <div class="col-md-11">
+                            <button class="d-flex justify-content-center btn checkout-btn mt-4 ms-5" href="checkout-order.php" type="submit" name="checkout">Continue Checkout</button>
                         </div>
                     </div>
                 </div>

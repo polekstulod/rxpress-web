@@ -553,6 +553,7 @@ svg.bi-bag-fill {
 .checkout-btn {
   color: #fff;
   background-color: #00A3A8;
+  width:100%;
 }
 
 .reset-btn {
