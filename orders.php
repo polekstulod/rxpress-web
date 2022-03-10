@@ -25,8 +25,10 @@ include("session.php");
             </div>
             <?php 
                 $search = $_GET['search-order'] ?? '';
+                print_r($_GET);
+
                 if ($search) {
-                    $sql = "SELECT * FROM orderdetails WHERE OrderID LIKE '%$search%' || OrderDate LIKE '%$search%' || Username LIKE '%$search%' || Subtotal LIKE '%$search%'" ;
+                    $sql = "SELECT * FROM orderdetails WHERE OrderID LIKE '%$search%' || OrderDate LIKE '%$search%' || Username LIKE '%$search%' || Total LIKE '%$search%'" ;
                 }
                 else {
                     $sql = "SELECT * FROM orderdetails";
@@ -36,14 +38,14 @@ include("session.php");
             ?>
             <div class="d-flex justify-content-between search-orders border mt-2 mb-5">
                 <form class="d-inline-flex">
-                    <select class="btn-select" id="filter-orders">
+                    <select class="btn-select" name="searchField" id="filter-orders">
                         <option value="order-id" selected>Order ID</option>
                         <option value="username">Username</option>
                         <option value="total-price">Total Price</option>
                     </select>
                     <input class="ms-2" type="search" placeholder="Search..." name="search-order" id="search-order" value="<?php echo $search?>">
                     <label class="form-label d-flex ms-4 mb-0" for="search-order">
-                        <button class="btn btn-primary btn-search-prod rounded-pill" type="button">
+                        <button class="btn btn-primary btn-search-prod rounded-pill" id= "search-icon" type="submit" onclick="searchDropDown()">
                             <i class="fa fa-search icon-color"></i>
                         </button>
                     </label>
@@ -78,5 +80,38 @@ include("session.php");
             </div>
         </div>
     </section>
+
+    <script>
+
+        function searchDropDown() {
+            const btn = document.querySelector('#search-icon');
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let category = document.querySelector('#filter-orders').value;
+                if (category == 'order-id') {
+                    <?php 
+                        $sql = "SELECT * FROM orderdetails WHERE OrderID = '$search'" ;
+                        echo $sql;
+                    ?>
+                }
+                else if (category == 'username') {
+                    <?php 
+                        $sql = "SELECT * FROM orderdetails WHERE Username = '$search'" ;
+                        echo $sql;
+                    ?>
+                }
+                else {
+                    <?php 
+                        $sql = "SELECT * FROM orderdetails WHERE Total = '$search'" ;
+                        echo $sql;
+                    ?>
+                }
+            })
+
+        }
+
+
+    </script>
 
 <?php include_once "views/partials/footer.php"; ?>

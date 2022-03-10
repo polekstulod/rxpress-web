@@ -270,6 +270,17 @@ btn .btn-buy {
   border: 0;
 }
 
+.btn-search-prod:hover {
+  color: #fff;
+  background-color: #00A3A8;
+  border-color: #00A3A8;
+}
+.btn-search-prod:focus {
+  color: #fff;
+  background-color: #fff;
+  border-color: #00A3A8;
+}
+
 .filter-border {
   background: #ffffff;
   border: 1px solid #00a3a8;
