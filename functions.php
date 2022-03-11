@@ -171,11 +171,31 @@ function productInfo($con){ ?>
                                     </div>
                                 </div>
                             </div>
-                                <?php }else{ ?>
+                                <?php }else{
+                                        $username = $_SESSION['username'];
+                                        $sql = "SELECT UserID FROM user WHERE Username = '$username'";
+                                        $userID = mysqli_query($con, $sql) or die(mysql_error());
+                                        while ($row1 = mysqli_fetch_row($userID)) {
+                                            $user_ID = $row1[0];
+                                        }  ?>
+                                    
+                                    <form action="cart.php?user_id=<?php echo $user_ID ?>" method="post">
                                 <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary product-btn-add rounded-pill" type="button">ADD</button>
-                                <a class="d-flex justify-content-center align-items-center btn btn-primary product-btn-buy rounded-pill" href="cart.html">BUY</a>
-                                </div>                                    
+                                    <button class="d-flex justify-content-center align-items-center btn btn-primary product-btn-buy rounded-pill" type="submit">BUY</button>
+                                    <button class="btn btn-primary product-btn-add rounded-pill" id="addcounter" type="button" onClick="addCounter(1)">ADD</button>
+                                    <div id="counter" class="d-none align-items-center">
+                                        <a class="quantity-minus" href="#">
+                                            <span>-</span>
+                                        </a>
+                                        <input type="number" class="quantity-input" name="quantity" value="1">
+                                        <a class="quantity-plus" href="#">
+                                            <span>+</span>
+                                        </a>
+                                    </div>
+                                    <input type="hidden" name="product_id" value="<?php echo $row['ProductID'] ?>">
+                                    <input type="hidden" name="price" value="<?php echo $row['Price'] ?>">
+                                </div>  
+                            </form>                                    
                                 <?php }
                              ?>
                         </div>
