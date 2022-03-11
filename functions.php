@@ -63,8 +63,9 @@ function productInfo($con){ ?>
                             </p>
                             <?php
                                 if($_SESSION['username'] == 'admin') { ?>
-                                    <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-center">
                                 <button class="btn btn-primary product-btn-edit rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#editProductModal">EDIT</button>
+                                <button class="btn btn-primary product-btn-edit rounded-pill" type="button" onclick="deleteConfirm()">DELETE</button>
                                 <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="AddProduct" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                         <div class="modal-content bg-modal">
@@ -288,6 +289,7 @@ function listProducts($con)
 }
 
     ?>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function addCounter(productID) {
             const prodID = productID - 1;
@@ -318,5 +320,25 @@ function listProducts($con)
             counter[prodID].classList.remove('d-none');
             counter[prodID].style.display = "flex";
             return input[prodID].value;
+        }
+
+        function deleteConfirm(){
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            }
+            })
         }
     </script>
