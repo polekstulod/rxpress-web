@@ -4,7 +4,7 @@ $globalCatID = 0;
 function productInfo($con){ ?>
     <?php
                 $productID = $_GET['title'];
-                $sql = "SELECT p.ProductID, p.CategoryID, p.BrandName, p.StockQuantity, p.Price, p.in_stock, p.DosageStrength, p.GenericName, p.DosageForm, p.DrugAdministration, m.ManufacturerName, cg.CategoryName, cond.ConditionName 
+                $sql = "SELECT p.ProductID, p.CategoryID, p.BrandName, p.StockQuantity, p.Price, p.DosageStrength, p.GenericName, p.DosageForm, p.DrugAdministration, m.ManufacturerName, cg.CategoryName, cond.ConditionName 
                 FROM `product` p
                 LEFT OUTER JOIN `manufacturer` m
                     ON p.ManufacturerID = m.ManufacturerID
@@ -161,7 +161,8 @@ function productInfo($con){ ?>
                                                                 <button type="button" class="form-control btn btn-cancel rounded submit px-3" data-bs-dismiss="modal">Cancel</button>
                                                             </div>
                                                             <div class="form-group">
-                                                                <button type="submit" name="submit" class="form-control btn btn-save rounded px-3">Save</button>
+                                                                <input type="hidden" value="<?php echo $globalProdID?>" name="prodID"/>
+                                                                <button type="submit" name="submitEdit" class="form-control btn btn-save rounded px-3">Save</button>
                                                             </div>
                                                         </div>
                                                         </form>

@@ -124,7 +124,7 @@ require('config.php');
                                                 <button type="button" class="form-control btn btn-cancel rounded submit px-3" data-bs-dismiss="modal">Cancel</button>
                                             </div>
                                             <div class="form-group">
-                                                <button type="submit" name="submit" class="form-control btn btn-save rounded px-3">Save</button>
+                                                <button type="submit" name="submitAdd" class="form-control btn btn-save rounded px-3">Save</button>
                                             </div>
                                         </div>
                                         </form>
