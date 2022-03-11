@@ -32,10 +32,11 @@ include("functions.php");
                             </label>
                         </div>
                     </form>
-
+                    <div class="d-flex flex-wrap card-products">
                     <?php
                         listProducts($con);
                     ?>
+                    </div>
                 </div>
             </div>
         </div>
