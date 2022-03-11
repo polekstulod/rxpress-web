@@ -1,7 +1,7 @@
 <div>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
         <div class="container d-flex justify-content-between">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="customer-products.php">
                 <img class="img-fluid" src="assets/img/RxPress%20Header.png" width="90" height="90">
             </a>
             <div class="col-7">
