@@ -219,7 +219,35 @@ function listProducts($con)
 
     $search = $_GET['search-product'] ?? '';
 
-    if ($search) {
+    $catArr = '';
+    if(isset($_GET['category'])){
+        $name = $_GET['category'];
+        foreach ($name as $category) {
+            $catArr .= $category . ', ';
+        }   
+    }
+    $newCatArr = rtrim($catArr, ", ");
+
+    $manArr = '';
+    if(isset($_GET['manufacturer'])){
+        $name = $_GET['manufacturer'];
+        foreach ($name as $manufacturer) {
+            $manArr .= $manufacturer . ', ';
+        }   
+    }
+    $newManArr = rtrim($manArr, ", ");
+
+    $sortMin = 0;
+    $sortMax = 0;
+    if(isset($_GET['sortMin']) && isset($_GET['sortMax'])){
+        $sortMin = $_GET['sortMin'];
+        $sortMax = $_GET['sortMax'];
+    }
+            
+    if(isset($_GET['category']) && isset($_GET['manufacturer'])){
+        $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID AND manufacturer.ManufacturerID IN ($newManArr) INNER JOIN category ON product.CategoryID = category.CategoryID AND category.CategoryID IN ($newCatArr) WHERE product.Is_Deleted = 0 AND product.Price BETWEEN $sortMin AND $sortMax;";
+    }
+    else if ($search) {
         $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID
         WHERE product.BrandName LIKE '%$search%' || product.Price LIKE '%$search%' || product.DosageStrength LIKE '%$search%'  
         || manufacturer.ManufacturerName LIKE '%$search%'";
