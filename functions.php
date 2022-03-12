@@ -244,8 +244,25 @@ function listProducts($con)
         $sortMax = $_GET['sortMax'];
     }
             
-    if(isset($_GET['category']) && isset($_GET['manufacturer'])){
-        $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID AND manufacturer.ManufacturerID IN ($newManArr) INNER JOIN category ON product.CategoryID = category.CategoryID AND category.CategoryID IN ($newCatArr) WHERE product.Is_Deleted = 0 AND product.Price BETWEEN $sortMin AND $sortMax;";
+    if(isset($_GET['category']) || isset($_GET['manufacturer'])){
+        if(!isset($_GET['manufacturer'])){
+            $sql = "SELECT * from product
+            INNER JOIN manufacturer
+                ON product.ManufacturerID = manufacturer.ManufacturerID
+            INNER JOIN category
+                ON product.CategoryID = category.CategoryID
+                AND category.CategoryID IN ($newCatArr)
+            WHERE product.Is_Deleted = 0;";
+        }else if(!isset($_GET['category'])){
+            $sql = "SELECT *
+            FROM product
+            INNER JOIN manufacturer
+                ON product.ManufacturerID = manufacturer.ManufacturerID
+                AND manufacturer.ManufacturerID IN ($newManArr)
+            WHERE product.Is_Deleted = 0;";
+        }else{
+            $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID AND manufacturer.ManufacturerID IN ($newManArr) INNER JOIN category ON product.CategoryID = category.CategoryID AND category.CategoryID IN ($newCatArr) WHERE product.Is_Deleted = 0 AND product.Price BETWEEN $sortMin AND $sortMax;";
+        }
     }
     else if ($search) {
         $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID

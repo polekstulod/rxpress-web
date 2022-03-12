@@ -62,7 +62,10 @@ require('config.php');
                 }
                 ?>
                 </div>
-                <button type="submit">Submit</button>
+                <div class="m-3">
+                <button class="btn btn-primary product-btn-edit rounded-pill" type="submit">Submit</button>
+                </div>
+                
             </form>
         </div>
     </div>
