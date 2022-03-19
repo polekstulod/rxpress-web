@@ -4,12 +4,12 @@ include("session.php");
 include("functions.php");
 ?>
 
-<?php include_once "views/partials/header.php"; ?>
+<?php include_once "views/partials/header.html"; ?>
 
 <body>
     <section class="bg-theme">
         <?php include_once "views/partials/admin-navbar.php"; ?>
-        <?php include_once "views/partials/menu.php"; ?>
+        <?php include_once "views/partials/menu.html"; ?>
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><span>Home</span></a></li>
@@ -36,4 +36,4 @@ include("functions.php");
         </div>
     </section>
 
-<?php include_once "views/partials/footer.php"; ?>
+<?php include_once "views/partials/footer.html"; ?>

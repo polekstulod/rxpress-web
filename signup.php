@@ -1,4 +1,4 @@
-<?php include_once "views/partials/header.php"; ?>
+<?php include_once "views/partials/header.html"; ?>
 
 <body>
     <section>

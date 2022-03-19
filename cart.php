@@ -3,7 +3,7 @@ require('config.php');
 include("session.php");
 ?>
 
-<?php include_once "views/partials/header.php"; ?>
+<?php include_once "views/partials/header.html"; ?>
 
 <body>
     <?php
@@ -25,7 +25,7 @@ include("session.php");
     ?>
     <section class="bg-theme">
         <?php include_once "views/partials/customer-navbar.php"; ?>
-        <?php include_once "views/partials/menu.php"; ?>
+        <?php include_once "views/partials/menu.html"; ?>
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><span>Home</span></a></li>

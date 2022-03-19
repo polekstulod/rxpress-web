@@ -3,13 +3,13 @@ require('config.php');
 include("session.php");
 ?>
 
-<?php include_once "views/partials/header.php"; ?>
+<?php include_once "views/partials/header.html"; ?>
 
 
 <body>
     <section class="bg-theme">
         <?php include_once "views/partials/admin-navbar.php"; ?>
-        <?php include_once "views/partials/menu.php"; ?>
+        <?php include_once "views/partials/menu.html"; ?>
         <div class="container">
             <div class="d-flex justify-content-end align-items-baseline mt-5">
                 <p class="me-2">Order Creation Date&nbsp;</p>
@@ -113,4 +113,4 @@ include("session.php");
 
     </script>
 
-<?php include_once "views/partials/footer.php"; ?>
+<?php include_once "views/partials/footer.html"; ?>
