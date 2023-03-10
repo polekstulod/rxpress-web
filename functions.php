@@ -276,7 +276,7 @@ function listProducts($con)
     $result = $con->query($sql) or die(mysql_error());
 
     while ($row = $result->fetch_assoc()) { ?>
-        <div class="card card-product rounded-3 mb-3" style="width: 14.85em;">
+        <div class="card card-product rounded-3 mb-3" style="width: 17.65em;">
         <img class="img-fluid card-img-top w-100 d-block d-inline-block mx-auto" src="assets/img/product-img/<?php echo $row['ProductID']; ?>.jpeg">
         <div class="card-body">
             <hr>
