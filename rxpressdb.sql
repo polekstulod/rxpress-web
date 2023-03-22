@@ -125,6 +125,81 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `UserID` int(11) NOT NULL,
+  `Username` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `FirstName` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `LastName` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `User_pw` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Is_admin` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `User_pw`, `Is_admin`) VALUES
+(1, 'jmcshea0', 'Jemima', 'McShea', 'f8AFUlA', 0),
+(2, 'rdacke1', 'Ryon', 'Dacke', '0WeJuoG', 0),
+(3, 'btinniswood2', 'Berk', 'Tinniswood', 'MXt32h', 0),
+(4, 'rbyard3', 'Ricki', 'Byard', 'NZgULo6', 0),
+(5, 'jferens4', 'Junina', 'Ferens', '3ZCyB3Dx', 0),
+(6, 'kbertot5', 'Karlee', 'Bertot', 'HsWljUL', 0),
+(7, 'aloude6', 'Arlinda', 'Loude', 'W12wXrIsoF', 0),
+(8, 'glamplugh7', 'Gary', 'Lamplugh', 'VvpxVZ47el', 0),
+(9, 'asleford8', 'Abdel', 'Sleford', 'Zsnja2atae', 0),
+(10, 'jcusworth9', 'Jeri', 'Cusworth', 'vosTyUw', 0),
+(11, 'klabounea', 'Ki', 'Laboune', '98Mqn6hpAPU', 0),
+(12, 'bboonb', 'Bourke', 'Boon', 'GtMeWmyTY7kU', 0),
+(13, 'sphilbrookc', 'Sabina', 'Philbrook', 'ztxVlHZXzU4F', 0),
+(14, 'ngrimsdaled', 'Nolly', 'Grimsdale', '9OyY7Y', 0),
+(15, 'adolline', 'Aidan', 'Dollin', 'rUmFHz1nl', 0),
+(16, 'cbernaldof', 'Chuck', 'Bernaldo', 'MXYgKlv6mV', 0),
+(17, 'cfyndong', 'Cesare', 'Fyndon', 'nbZ5n9O6m6', 0),
+(18, 'tmullarkeyh', 'Terrell', 'Mullarkey', 'hUKYEr', 0),
+(19, 'amcdarmidi', 'Angelique', 'McDarmid', 'pHz48ABhlz6E', 0),
+(20, 'bottosenj', 'Burk', 'Ottosen', 'lofki9B3', 0),
+(21, 'pmizenk', 'Philippa', 'Mizen', 'gMqMbI', 0),
+(22, 'hgristl', 'Huntlee', 'Grist', 'jmmGFi6o', 0),
+(23, 'pannandm', 'Paulo', 'Annand', '8qON9gfT4', 0),
+(24, 'amchardyn', 'Alleyn', 'McHardy', 'eSjCA8W', 0),
+(25, 'nwestnedgeo', 'Nickie', 'Westnedge', 'siC3g6wsSm', 0),
+(26, 'ipollicottp', 'Isadore', 'Pollicott', 'TxjL1yCrKK', 0),
+(27, 'rgarbuttq', 'Reiko', 'Garbutt', '9x3unyUjW55', 0),
+(28, 'tbeldonr', 'Tori', 'Beldon', 'AJOvtYo3G3', 0),
+(29, 'lhousleys', 'Lynn', 'Housley', 'affhU0pORnU', 0),
+(30, 'jsouthardt', 'Jason', 'Southard', 'cBYKzX3vc6v', 0),
+(31, 'gatherleyu', 'Gaultiero', 'Atherley', 'FQarxxRpYcA', 0),
+(32, 'eposselv', 'Estele', 'Possel', 'DUhJ5S6FLEk', 0),
+(33, 'tapflerw', 'Thorvald', 'Apfler', 'sL9axEGa', 0),
+(34, 'tseniourx', 'Trina', 'Seniour', 'nbriN4JlO', 0),
+(35, 'cblamirey', 'Cord', 'Blamire', 'ZJMvxJM9uOy', 0),
+(36, 'lscrivenz', 'Lise', 'Scriven', 'Hy82vpyM', 0),
+(37, 'rperford10', 'Roley', 'Perford', 'PgPVzCj3WIrk', 0),
+(38, 'pgoldsworthy11', 'Pippy', 'Goldsworthy', '8osaGGnL', 0),
+(39, 'ggregr12', 'Genvieve', 'Gregr', 'ec5L48gn15AE', 0),
+(40, 'bburgan13', 'Brook', 'Burgan', 'bM4C5VLN', 0),
+(41, 'brehme14', 'Bryce', 'Rehme', '00ZMoaVlQn5w', 0),
+(42, 'agrahame15', 'Angeline', 'Grahame', 'IcaGsqjRSJay', 0),
+(43, 'vlockwood16', 'Vonni', 'Lockwood', 'BOAraN7', 0),
+(44, 'erudledge17', 'Emilie', 'Rudledge', 'pxz7atBE', 0),
+(45, 'sbugbird18', 'Shell', 'Bugbird', 'c1jSCgD4Jv4', 0),
+(46, 'twhieldon19', 'Tommi', 'Whieldon', 'LeuxMb', 0),
+(47, 'brobbeke1a', 'Bibby', 'Robbeke', '0BStcTLe', 0),
+(48, 'cwetherald1b', 'Claudina', 'Wetherald', 'H7ym1dm5', 0),
+(49, 'pburgett1c', 'Petey', 'Burgett', 'KeN8bxqFuNet', 0),
+(50, 'ddawbury1d', 'Diego', 'Dawbury', 'i3FPmN', 0),
+(51, 'admin', 'adminFN', 'adminLN', 'admin', 1),
+(52, 'user', 'FN', 'LN', 'pass', 0);
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cart`
 --
 
@@ -631,80 +706,6 @@ INSERT INTO `product` (`ProductID`, `BrandName`, `GenericName`, `DosageStrength`
 (49, 'Cefaclor', 'Cefaclor', '250mg', 'tablet', 'Topical', 58, '2567.00', 50, 50, b'0'),
 (50, 'paracetamol', 'john lloyd', '250mg', 'tablet', 'oral route', 3, '50.00', 6, 3, b'0');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `UserID` int(11) NOT NULL,
-  `Username` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `FirstName` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `LastName` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `User_pw` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Is_admin` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `User_pw`, `Is_admin`) VALUES
-(1, 'jmcshea0', 'Jemima', 'McShea', 'f8AFUlA', 0),
-(2, 'rdacke1', 'Ryon', 'Dacke', '0WeJuoG', 0),
-(3, 'btinniswood2', 'Berk', 'Tinniswood', 'MXt32h', 0),
-(4, 'rbyard3', 'Ricki', 'Byard', 'NZgULo6', 0),
-(5, 'jferens4', 'Junina', 'Ferens', '3ZCyB3Dx', 0),
-(6, 'kbertot5', 'Karlee', 'Bertot', 'HsWljUL', 0),
-(7, 'aloude6', 'Arlinda', 'Loude', 'W12wXrIsoF', 0),
-(8, 'glamplugh7', 'Gary', 'Lamplugh', 'VvpxVZ47el', 0),
-(9, 'asleford8', 'Abdel', 'Sleford', 'Zsnja2atae', 0),
-(10, 'jcusworth9', 'Jeri', 'Cusworth', 'vosTyUw', 0),
-(11, 'klabounea', 'Ki', 'Laboune', '98Mqn6hpAPU', 0),
-(12, 'bboonb', 'Bourke', 'Boon', 'GtMeWmyTY7kU', 0),
-(13, 'sphilbrookc', 'Sabina', 'Philbrook', 'ztxVlHZXzU4F', 0),
-(14, 'ngrimsdaled', 'Nolly', 'Grimsdale', '9OyY7Y', 0),
-(15, 'adolline', 'Aidan', 'Dollin', 'rUmFHz1nl', 0),
-(16, 'cbernaldof', 'Chuck', 'Bernaldo', 'MXYgKlv6mV', 0),
-(17, 'cfyndong', 'Cesare', 'Fyndon', 'nbZ5n9O6m6', 0),
-(18, 'tmullarkeyh', 'Terrell', 'Mullarkey', 'hUKYEr', 0),
-(19, 'amcdarmidi', 'Angelique', 'McDarmid', 'pHz48ABhlz6E', 0),
-(20, 'bottosenj', 'Burk', 'Ottosen', 'lofki9B3', 0),
-(21, 'pmizenk', 'Philippa', 'Mizen', 'gMqMbI', 0),
-(22, 'hgristl', 'Huntlee', 'Grist', 'jmmGFi6o', 0),
-(23, 'pannandm', 'Paulo', 'Annand', '8qON9gfT4', 0),
-(24, 'amchardyn', 'Alleyn', 'McHardy', 'eSjCA8W', 0),
-(25, 'nwestnedgeo', 'Nickie', 'Westnedge', 'siC3g6wsSm', 0),
-(26, 'ipollicottp', 'Isadore', 'Pollicott', 'TxjL1yCrKK', 0),
-(27, 'rgarbuttq', 'Reiko', 'Garbutt', '9x3unyUjW55', 0),
-(28, 'tbeldonr', 'Tori', 'Beldon', 'AJOvtYo3G3', 0),
-(29, 'lhousleys', 'Lynn', 'Housley', 'affhU0pORnU', 0),
-(30, 'jsouthardt', 'Jason', 'Southard', 'cBYKzX3vc6v', 0),
-(31, 'gatherleyu', 'Gaultiero', 'Atherley', 'FQarxxRpYcA', 0),
-(32, 'eposselv', 'Estele', 'Possel', 'DUhJ5S6FLEk', 0),
-(33, 'tapflerw', 'Thorvald', 'Apfler', 'sL9axEGa', 0),
-(34, 'tseniourx', 'Trina', 'Seniour', 'nbriN4JlO', 0),
-(35, 'cblamirey', 'Cord', 'Blamire', 'ZJMvxJM9uOy', 0),
-(36, 'lscrivenz', 'Lise', 'Scriven', 'Hy82vpyM', 0),
-(37, 'rperford10', 'Roley', 'Perford', 'PgPVzCj3WIrk', 0),
-(38, 'pgoldsworthy11', 'Pippy', 'Goldsworthy', '8osaGGnL', 0),
-(39, 'ggregr12', 'Genvieve', 'Gregr', 'ec5L48gn15AE', 0),
-(40, 'bburgan13', 'Brook', 'Burgan', 'bM4C5VLN', 0),
-(41, 'brehme14', 'Bryce', 'Rehme', '00ZMoaVlQn5w', 0),
-(42, 'agrahame15', 'Angeline', 'Grahame', 'IcaGsqjRSJay', 0),
-(43, 'vlockwood16', 'Vonni', 'Lockwood', 'BOAraN7', 0),
-(44, 'erudledge17', 'Emilie', 'Rudledge', 'pxz7atBE', 0),
-(45, 'sbugbird18', 'Shell', 'Bugbird', 'c1jSCgD4Jv4', 0),
-(46, 'twhieldon19', 'Tommi', 'Whieldon', 'LeuxMb', 0),
-(47, 'brobbeke1a', 'Bibby', 'Robbeke', '0BStcTLe', 0),
-(48, 'cwetherald1b', 'Claudina', 'Wetherald', 'H7ym1dm5', 0),
-(49, 'pburgett1c', 'Petey', 'Burgett', 'KeN8bxqFuNet', 0),
-(50, 'ddawbury1d', 'Diego', 'Dawbury', 'i3FPmN', 0),
-(51, 'admin', 'adminFN', 'adminLN', 'admin', 1),
-(52, 'user', 'FN', 'LN', 'pass', 0);
-
--- --------------------------------------------------------
 
 --
 -- Structure for view `orderdetails`
