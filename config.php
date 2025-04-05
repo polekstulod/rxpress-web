@@ -1,7 +1,7 @@
 <?php
-$host = 'localhost';
+$host = 'mariadb';
 $username = 'root';
-$password = '';
+$password = 'root';
 $database = 'rxpressdb';
 
 $con = mysqli_connect($host, $username, $password, $database);
